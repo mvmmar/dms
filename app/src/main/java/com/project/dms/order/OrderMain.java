@@ -1,4 +1,4 @@
-package com.example.listviewexample;
+package com.project.dms.order;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+
+import com.project.dms.R;
 
 import static android.app.ProgressDialog.show;
 

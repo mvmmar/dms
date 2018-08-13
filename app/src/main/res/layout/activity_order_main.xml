@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OrderMain">
+    tools:context=".order.OrderMain">
 
     <ListView
         android:id="@+id/orderListView"
@@ -30,7 +30,7 @@
             android:id="@+id/addOrderButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/addOrderButton" />
+            android:text="@string/order_add_button" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

@@ -1,4 +1,4 @@
-package com.example.user.project;
+package com.project.dms.product;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -12,7 +12,7 @@ import android.widget.TextView;
 public class ProductCustomAdapter extends ArrayAdapter {
 
     public ProductCustomAdapter(@NonNull Context context, Product[] products) {
-        super(context,R.layout.product_custom_row, products);
+        super(context,com.project.dms.R.layout.product_custom_row, products);
     }
 
     @NonNull
@@ -21,7 +21,7 @@ public class ProductCustomAdapter extends ArrayAdapter {
 
         //Now we are manually giving the operating the ArrayAdapter
         LayoutInflater inflater= LayoutInflater.from(getContext());
-        View cusView = inflater.inflate(R.layout.product_custom_row,parent,false);
+        View cusView = inflater.inflate(com.project.dms.R.layout.product_custom_row,parent,false);
 
         //For array we've passed it works in a loop
         Product product=(Product) getItem(position);
@@ -30,10 +30,10 @@ public class ProductCustomAdapter extends ArrayAdapter {
         double proPrice = product.Price;
         int proQty = product.Quantity;
 
-        TextView productName = (TextView) cusView.findViewById(R.id.proName);
-        TextView productDes = (TextView) cusView.findViewById(R.id.proDescription);
-        TextView productPrice = (TextView) cusView.findViewById(R.id.proPrice);
-        TextView productQuantity = (TextView) cusView.findViewById(R.id.proQuantity);
+        TextView productName = (TextView) cusView.findViewById(com.project.dms.R.id.proName);
+        TextView productDes = (TextView) cusView.findViewById(com.project.dms.R.id.proDescription);
+        TextView productPrice = (TextView) cusView.findViewById(com.project.dms.R.id.proPrice);
+        TextView productQuantity = (TextView) cusView.findViewById(com.project.dms.R.id.proQuantity);
 
         productName.setText(proName);
         productDes.setText(proDescription);

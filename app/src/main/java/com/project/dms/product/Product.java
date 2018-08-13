@@ -1,4 +1,4 @@
-package com.example.user.project;
+package com.project.dms.product;
 
 public class Product {
 

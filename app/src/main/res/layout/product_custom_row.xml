@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="10dp"
-    android:layout_marginBottom="10dp">
+    android:layout_marginBottom="10dp"
+    android:layout_marginTop="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,10 +18,10 @@
             android:layout_marginLeft="24dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="8dp"
-            android:background="@color/orderIconBG"
+            android:background="@color/orderIconBackground"
             android:padding="8dp"
             android:src="@drawable/ic_local_offer_black_24dp"
-            android:tint="@color/orderIconFG" />
+            android:tint="@color/orderIconForeground" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -49,9 +49,9 @@
                     android:id="@+id/proPrice"
                     android:layout_width="45dp"
                     android:layout_height="36dp"
+                    android:layout_marginTop="16dp"
                     android:gravity="center"
-                    android:hint="0"
-                    android:layout_marginTop="16dp"/>
+                    android:hint="0" />
 
             </LinearLayout>
 
@@ -81,17 +81,13 @@
                     android:layout_marginTop="16dp"
                     android:gravity="center"
                     android:hint="0.00"
-                    android:textColor="@android:color/holo_green_dark"/>
+                    android:textColor="@android:color/holo_green_dark" />
             </LinearLayout>
-
 
 
         </LinearLayout>
 
     </LinearLayout>
-
-
-
 
 
 </LinearLayout>

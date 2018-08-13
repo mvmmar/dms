@@ -1,4 +1,4 @@
-package com.example.listviewexample;
+package com.project.dms.order;
 
 import android.content.Context;
 import android.graphics.PorterDuff;
@@ -14,7 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.net.ConnectException;
+import com.project.dms.R;
 
 public class OrderListAdapter extends ArrayAdapter<Order> {
     OrderListAdapter(@NonNull Context context, @NonNull Order[] orders) {
@@ -61,11 +61,11 @@ public class OrderListAdapter extends ArrayAdapter<Order> {
             }
         }
 
-        TextView orderName = (TextView) view.findViewById(R.id.orderName);
-        TextView orderStat = (TextView) view.findViewById(R.id.orderStatus);
-        TextView orderDate = (TextView) view.findViewById(R.id.orderDate);
-        ImageView orderIcon = (ImageView) view.findViewById(R.id.orderIcon);
-        ImageView orderStatusIcon = (ImageView) view.findViewById(R.id.orderStatusIcon);
+        TextView orderName = view.findViewById(R.id.orderName);
+        TextView orderStat = view.findViewById(R.id.orderStatus);
+        TextView orderDate = view.findViewById(R.id.orderDate);
+        ImageView orderIcon = view.findViewById(R.id.orderIcon);
+        ImageView orderStatusIcon = view.findViewById(R.id.orderStatusIcon);
 
         // set order details
         orderName.setText(name);

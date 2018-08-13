@@ -1,7 +1,13 @@
 <resources>
     <string name="app_name">Distributor Management System</string>
-    <string name="addOrderButton">Add</string>
-    <string name="orderDateTemporary">DD/MM/YY</string>
-    <string name="orderNameTemp">Order name</string>
-    <string name="orderStatusTemp">Order Status</string>
+    <string name="order_add_button">Add</string>
+    <string name="order_date_placeholder">DD/MM/YY</string>
+    <string name="order_name_placeholder">Order name</string>
+    <string name="order_status_placeholder">Order Status</string>
+    <string name="main_activity_title_placeholder">Title</string>
+    <string name="main_view_desc_placeholder">description</string>
+    <string name="main_view_orders_title">Orders</string>
+    <string name="main_view_orders_desc">View your orders</string>
+    <string name="main_view_products_desc">View Products and related details</string>
+    <string name="main_view_products_title">Products</string>
 </resources>

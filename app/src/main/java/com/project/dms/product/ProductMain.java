@@ -1,4 +1,4 @@
-package com.example.user.project;
+package com.project.dms.product;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -6,14 +6,12 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class ProductMain extends AppCompatActivity {
 
@@ -22,7 +20,7 @@ public class ProductMain extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_product_main);
+        setContentView(com.project.dms.R.layout.activity_product_main);
 
         myDialog = new Dialog(this);
 
@@ -33,7 +31,7 @@ public class ProductMain extends AppCompatActivity {
                 new Product("Product Name","product Description",500.00,15),
         };
 
-        final ListView custom_listView=findViewById(R.id.productListView);
+        final ListView custom_listView=findViewById(com.project.dms.R.id.productListView);
 
         ArrayAdapter cus_arrayAdapter = new ProductCustomAdapter(this,products);
         custom_listView.setAdapter(cus_arrayAdapter);
@@ -44,13 +42,13 @@ public class ProductMain extends AppCompatActivity {
 
                 TextView txtClose;
                 Button updateBtn;
-                myDialog.setContentView(R.layout.activity_pop_up_product_manipulate);
-                txtClose =(TextView) myDialog.findViewById(R.id.txtClose);
-                updateBtn=(Button)myDialog.findViewById(R.id.updateBtn);
+                myDialog.setContentView(com.project.dms.R.layout.activity_pop_up_product_manipulate);
+                txtClose =(TextView) myDialog.findViewById(com.project.dms.R.id.txtClose);
+                updateBtn=(Button)myDialog.findViewById(com.project.dms.R.id.updateBtn);
                 updateBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent(ProductMain.this,product_update.class);
+                        Intent intent = new Intent(ProductMain.this,ProductUpdate.class);
                         startActivity(intent);
                     }
                 });
@@ -76,7 +74,7 @@ public class ProductMain extends AppCompatActivity {
     }
 
     public void addBtnClick(View view){
-        Intent intent = new Intent(this,CollapsingToolbar.class);
+        Intent intent = new Intent(this,ProductInsert.class);
         startActivity(intent);
     }
 

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.user.project">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.project.dms">
 
     <application
         android:allowBackup="true"
@@ -16,17 +17,31 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CollapsingToolbar"
-            android:parentActivityName=".ProductMain" />
+            android:name=".product.ProductInsert"
+            android:parentActivityName=".product.ProductMain"
+            android:windowSoftInputMode="adjustPan|adjustResize"
+            tools:targetApi="jelly_bean" />
         <activity
-            android:name=".ProductMain"
-            android:parentActivityName=".MainActivity" />
-        <activity android:name=".pop_up_product_manipulate" />
-        <activity android:name=".product_update"></activity>
-        <activity android:name=".OrderMain"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".OrderView"
-            android:parentActivityName=".OrderMain"/>
+            android:name=".product.ProductMain"
+            android:parentActivityName=".MainActivity"
+            android:windowSoftInputMode="adjustPan|adjustResize"
+            tools:targetApi="jelly_bean" />
+        <activity
+            android:name=".product.ProductPopUp"
+            android:windowSoftInputMode="adjustPan|adjustResize" />
+        <activity
+            android:name=".product.ProductUpdate"
+            android:windowSoftInputMode="adjustPan|adjustResize" />
+        <activity
+            android:name=".order.OrderMain"
+            android:parentActivityName=".MainActivity"
+            android:windowSoftInputMode="adjustPan|adjustResize"
+            tools:targetApi="jelly_bean" />
+        <activity
+            android:name=".order.OrderView"
+            android:parentActivityName=".order.OrderMain"
+            android:windowSoftInputMode="adjustPan|adjustResize"
+            tools:targetApi="jelly_bean" />
     </application>
 
 </manifest>

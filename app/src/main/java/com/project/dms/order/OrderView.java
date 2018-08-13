@@ -1,20 +1,15 @@
-package com.example.listviewexample;
+package com.project.dms.order;
 
 import android.content.Intent;
-import android.content.res.ColorStateList;
 import android.graphics.drawable.ColorDrawable;
-import android.media.Image;
 import android.os.Build;
 import android.support.constraint.ConstraintLayout;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.widget.ImageViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
-import android.widget.TextClock;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
+import com.project.dms.R;
 
 public class OrderView extends AppCompatActivity {
 
