@@ -1,4 +1,4 @@
-package com.example.user.project;
+package com.project.dms.product;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -13,12 +13,12 @@ public class product_update extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_product_update);
+        setContentView(com.project.dms.R.layout.activity_product_update);
 
-        pName=(EditText)findViewById(R.id.pName);
-        pDescription=(EditText)findViewById(R.id.pDescription);
-        pQuantity=(EditText)findViewById(R.id.pQuantity);
-        pPrice=(EditText)findViewById(R.id.pPrice);
+        pName=(EditText)findViewById(com.project.dms.R.id.pName);
+        pDescription=(EditText)findViewById(com.project.dms.R.id.pDescription);
+        pQuantity=(EditText)findViewById(com.project.dms.R.id.pQuantity);
+        pPrice=(EditText)findViewById(com.project.dms.R.id.pPrice);
     }
 
     public void productUpdateBtn(View view){

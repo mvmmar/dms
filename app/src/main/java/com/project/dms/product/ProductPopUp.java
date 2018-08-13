@@ -1,4 +1,4 @@
-package com.example.user.project;
+package com.project.dms.product;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -10,7 +10,7 @@ public class pop_up_product_manipulate extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pop_up_product_manipulate);
+        setContentView(com.project.dms.R.layout.activity_pop_up_product_manipulate);
     }
 
 }
