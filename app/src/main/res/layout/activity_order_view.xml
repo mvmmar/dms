@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".order.OrderView"
     android:clipToPadding="false"
     android:orientation="vertical"
+    android:padding="16dp"
     android:scrollbars="vertical"
-    android:padding="16dp">
+    tools:context=".order.OrderView">
 
     <android.support.v7.widget.CardView
         android:id="@+id/orderViewCustomerDetails"
@@ -76,11 +76,11 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="16dp"
-                    android:text="Customer Name"
                     android:layout_marginStart="8dp"
-                    android:layout_marginEnd="16dp" />
+                    android:text="Customer Name" />
             </LinearLayout>
 
             <LinearLayout
@@ -97,11 +97,11 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="16dp"
-                    android:text="+94 77 123 1234"
                     android:layout_marginStart="8dp"
-                    android:layout_marginEnd="16dp" />
+                    android:text="+94 77 123 1234" />
             </LinearLayout>
 
             <LinearLayout
@@ -133,7 +133,10 @@
         android:layout_marginTop="8dp"
         android:clipToPadding="false"
         app:layout_constraintBottom_toTopOf="@+id/orderViewTotalView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/orderViewCustomerDetails"
+
         tools:layout_editor_absoluteX="8dp">
 
         <ListView
@@ -155,6 +158,8 @@
         android:layout_gravity="center"
         android:layout_marginBottom="8dp"
         android:clipToPadding="false"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         card_view:cardCornerRadius="4dp"
         card_view:layout_constraintBottom_toTopOf="@+id/orderViewAcceptDeny"
         tools:layout_editor_absoluteX="8dp">
@@ -188,7 +193,7 @@
                     android:text="$ 22.00"
                     android:textAlignment="textEnd"
 
-                    card_view:layout_constraintRight_toRightOf="parent"/>
+                    card_view:layout_constraintRight_toRightOf="parent" />
             </android.support.constraint.ConstraintLayout>
 
             <android.support.constraint.ConstraintLayout
@@ -213,7 +218,7 @@
                     android:layout_gravity="end"
                     android:text="$ 5.10"
                     android:textAlignment="textEnd"
-                    card_view:layout_constraintRight_toRightOf="parent"/>
+                    card_view:layout_constraintRight_toRightOf="parent" />
             </android.support.constraint.ConstraintLayout>
 
             <android.support.constraint.ConstraintLayout
@@ -258,10 +263,13 @@
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="8dp">
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_editor_absoluteX="8dp"
+        android:visibility="gone">
 
         <android.support.design.button.MaterialButton
-            android:id="@+id/material_text_button"
+            android:id="@+id/orderViewDenyButton"
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -270,7 +278,7 @@
             android:text="Deny" />
 
         <android.support.design.button.MaterialButton
-            android:id="@+id/material_button"
+            android:id="@+id/orderViewAcceptButton"
             style="@style/Widget.MaterialComponents.Button"
             android:layout_width="88dp"
             android:layout_height="wrap_content"
@@ -278,4 +286,5 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
     </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>
