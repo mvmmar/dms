@@ -3,6 +3,8 @@ package com.project.dms.order;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.project.dms.product.Product;
+
 // Use Parcelable to make it possible to pass objects between views
 // Use this site to generate Parcelables from the class http://www.parcelabler.com/
 public class Order implements Parcelable {

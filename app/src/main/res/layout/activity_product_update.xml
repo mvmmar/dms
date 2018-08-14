@@ -45,7 +45,7 @@
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/azure"
+            android:background="@color/dashboardBackground"
             android:orientation="vertical"
             tools:context="com.project.dms.MainActivity">
 

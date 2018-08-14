@@ -47,7 +47,7 @@
             android:layout_height="match_parent"
             tools:context="com.project.dms.MainActivity"
             android:orientation="vertical"
-            android:background="@color/azure">
+            android:background="@color/dashboardBackground">
 
             <android.support.v7.widget.CardView
                 android:layout_margin="30dp"

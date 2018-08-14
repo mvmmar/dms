@@ -39,33 +39,31 @@ public class OrderListAdapter extends ArrayAdapter<Order> {
         String stat = order.status;
         String date = order.date;
 
-        int statusColor, statusIcon, orderIconImg;
+        int statusColor, statusIcon;
         switch (stat) {
             case "Accepted": {
                 statusColor = R.color.orderStatusAccepted;
                 statusIcon = R.drawable.ic_status_accepted;
-                orderIconImg = R.drawable.ic_order_accepted;
                 break;
             }
             case "Pending": {
                 statusColor = R.color.orderStatusPending;
                 statusIcon = R.drawable.ic_status_pending;
-                orderIconImg = R.drawable.ic_order_pending;
+                date = "--/--/--";
                 break;
             }
             default: {
                 stat = "Denied";
                 statusColor = R.color.orderStatusDenied;
                 statusIcon = R.drawable.ic_status_denied;
-                orderIconImg = R.drawable.ic_order_denied;
             }
         }
 
         TextView orderName = view.findViewById(R.id.orderName);
         TextView orderStat = view.findViewById(R.id.orderStatus);
         TextView orderDate = view.findViewById(R.id.orderDate);
-        ImageView orderIcon = view.findViewById(R.id.orderIcon);
         ImageView orderStatusIcon = view.findViewById(R.id.orderStatusIcon);
+        // ImageView orderIcon = view.findViewById(R.id.orderIcon);
 
         // set order details
         orderName.setText(name);
@@ -79,10 +77,10 @@ public class OrderListAdapter extends ArrayAdapter<Order> {
         orderStat.setTextColor(statusColor);
         orderStatusIcon.setColorFilter(statusColor, PorterDuff.Mode.MULTIPLY);
 
-        orderIcon.setImageResource(orderIconImg);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            orderIcon.setBackground(new ColorDrawable(statusColor));
-        }
+        // orderIcon.setImageResource(orderIconImg);
+        // if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+        //     orderIcon.setBackground(new ColorDrawable(statusColor));
+        // }
 
         return view;
     }

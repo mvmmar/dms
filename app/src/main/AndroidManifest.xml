@@ -13,6 +13,7 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -34,11 +35,13 @@
             android:windowSoftInputMode="adjustPan|adjustResize" />
         <activity
             android:name=".order.OrderMain"
+            android:label="@string/order_main_title"
             android:parentActivityName=".MainActivity"
             android:windowSoftInputMode="adjustPan|adjustResize"
             tools:targetApi="jelly_bean" />
         <activity
             android:name=".order.OrderView"
+            android:label="@string/order_name_placeholder"
             android:parentActivityName=".order.OrderMain"
             android:windowSoftInputMode="adjustPan|adjustResize"
             tools:targetApi="jelly_bean" />

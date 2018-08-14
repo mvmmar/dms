@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="@dimen/orderRowHeight">
 
@@ -13,20 +15,20 @@
         android:layout_marginStart="@dimen/orderRowMarginSmall"
         android:layout_marginTop="@dimen/orderRowMarginSmall"
         android:alpha="0.75"
-        android:background="@color/orderStatusPending"
+        android:background="@drawable/rounded_order_icon"
         android:contentDescription="@string/order_name_placeholder"
         android:padding="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_order_pending" />
+        app:srcCompat="@drawable/ic_order_accepted" />
 
     <TextView
         android:id="@+id/orderName"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="@dimen/orderRowMarginSmall"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="@dimen/orderRowMarginLarge"
         android:layout_marginRight="@dimen/orderRowMarginLarge"
         android:ellipsize="end"
         android:maxLines="1"
@@ -82,6 +84,5 @@
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
 
 </android.support.constraint.ConstraintLayout>

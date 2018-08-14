@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#673ab7</color>
-    <color name="colorPrimaryDark">#4a148c</color>
-    <color name="colorAccent">#ff4081</color>
+    <color name="colorPrimary">#4b307c</color>
+    <color name="colorPrimaryDark">#342156</color>
+    <color name="colorAccent">#ff2b47</color>
     <color name="backgroundColor">#FCFCFC</color>
+    <color name="dashboardBackground">#F1F5F8</color>
     <color name="lightGray">#EDEDED</color>
     <color name="deepPurple">#7C4DFF</color>
     <color name="yellow">#FFB300</color>
     <color name="green">#00BFA5</color>
-    <color name="azure">#F1F5F8</color>
     <color name="white">#FFFFFF</color>
     <color name="pink">#fe104d</color>
     <color name="orderStatusDenied">#ef5350</color>
     <color name="orderStatusPending">#f9a825</color>
     <color name="orderStatusAccepted">#8bc34a</color>
     <color name="orderIconForeground">#78000000</color>
+    <color name="orderIconBorder">#c4c4c4</color>
     <color name="orderIconBackground">#e9e9e9</color>
 </resources>
