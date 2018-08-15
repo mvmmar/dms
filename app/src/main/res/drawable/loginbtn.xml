@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+<stroke android:width="2dp"
+    android:color="#180459"/>
+<gradient
+    android:angle="225"
+    android:startColor="#d914023e"
+    android:endColor="#f023035e"/>
+<corners
+    android:bottomLeftRadius="10dp"
+    android:bottomRightRadius="10dp"
+    android:topLeftRadius="10dp"
+    android:topRightRadius="10dp" />
+</shape>
+
+<!--<shape xmlns:android="http://schemas.android.com/apk/res/android" >-->
+<!--<stroke android:width="2dp"-->
+    <!--android:color="#04594b"/>-->
+<!--<gradient-->
+    <!--android:angle="225"-->
+    <!--android:startColor="#d9023e35"-->
+    <!--android:endColor="#f0035e50"/>-->
+<!--<corners-->
+    <!--android:bottomLeftRadius="10dp"-->
+    <!--android:bottomRightRadius="10dp"-->
+    <!--android:topLeftRadius="10dp"-->
+    <!--android:topRightRadius="10dp" />-->
+<!--</shape>-->
+
+<!--<shape xmlns:android="http://schemas.android.com/apk/res/android" >-->
+    <!--<stroke android:width="2dp"-->
+        <!--android:color="#041959"/>-->
+    <!--<gradient-->
+        <!--android:angle="225"-->
+        <!--android:startColor="#d9020e3e"-->
+        <!--android:endColor="#f0031a5e"/>-->
+    <!--<corners-->
+        <!--android:bottomLeftRadius="10dp"-->
+        <!--android:bottomRightRadius="10dp"-->
+        <!--android:topLeftRadius="10dp"-->
+        <!--android:topRightRadius="10dp" />-->
+<!--</shape>-->

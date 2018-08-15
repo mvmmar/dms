@@ -1,5 +1,6 @@
 <resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
+
     <dimen name="orderRowTitleSize">16sp</dimen>
     <dimen name="orderRowMarginLarge">16dp</dimen>
     <dimen name="orderRowMarginSmall">8dp</dimen>
@@ -7,6 +8,4 @@
     <dimen name="orderRowIconSize">48dp</dimen>
     <dimen name="orderRowStatusIconSize">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
-    <dimen name="app_bar_height">180dp</dimen>
-    <dimen name="text_margin">16dp</dimen>
 </resources>
