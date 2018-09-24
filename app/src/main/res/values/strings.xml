@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">DMS</string>
-    <string name="order_date_placeholder">DD/MM/YY</string>
-    <string name="order_name_placeholder">Order name</string>
-    <string name="order_status_placeholder">Order Status</string>
-    <string name="main_activity_title_placeholder">Title</string>
-    <string name="main_view_desc_placeholder">description</string>
+    <string name="action_settings">Settings</string>
+    <!-- Main view -->
     <string name="main_view_orders_title">Orders</string>
     <string name="main_view_orders_desc">View your orders</string>
     <string name="main_view_products_desc">View Products and related details</string>
     <string name="main_view_products_title">Products</string>
-    <string name="order_main_title">Orders</string>
+    <string name="main_activity_title_salesrep">Sales Rep</string>
+    <string name="main_view_desc_salesrep">Manage sales reps</string>
+    <string name="main_view_title_shops">Shops</string>
+    <string name="main_view_desc_shops">View shops</string>
+
+    <!-- Login -->
     <string name="email">Email Id</string>
     <string name="passowrd">Password</string>
     <string name="signin">Sign In</string>
@@ -24,8 +26,28 @@
     <string name="registered_emailid">Please enter your Registered Email Id below:</string>
     <string name="submit">SUBMIT</string>
     <string name="back">BACK</string>
-    <string name="main_activity_title_salesrep">Sales Rep</string>
-    <string name="main_view_desc_salesrep">Manage sales reps</string>
-    <string name="main_view_title_shops">Shops</string>
-    <string name="main_view_desc_shops">View shops</string>
+
+    <!--Order Strings-->
+    <string name="order_main_name">Orders</string>
+    <string name="order_date_placeholder">DD/MM/YY</string>
+    <string name="order_name_placeholder">Order name</string>
+    <string name="order_status_placeholder">Order Status</string>
+    <string name="order_add_label">Add new order</string>
+
+    <!--Add order-->
+    <string name="order_add_name_label">Name</string>
+    <string name="order_add_name_hint">Order name</string>
+    <string name="order_add_button">Add Order</string>
+    <string name="order_view_customer_name">Customer Name</string>
+    <string name="order_view_phone_no">+94 77 123 1234</string>
+    <string name="order_view_email">example@email.com</string>
+    <string name="order_delivery_label">Delivery</string>
+    <string name="order_created_label">Created</string>
+    <string name="order_new_title">New order</string>
+    <string name="order_new_hint">Order name</string>
+    <string name="order_sub_total_label">Sub-Total</string>
+    <string name="order_taxes_label">Taxes (10%)</string>
+    <string name="order_total_label">Total</string>
+    <string name="order_deny_button">Deny</string>
+    <string name="order_accept_button">Accept</string>
 </resources>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.mad.dms.product.ProductInsert"
+    tools:context="com.mad.dms.product.ProductMain"
     android:background="#FCFCFC">
 
     <android.support.design.widget.AppBarLayout

@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/orderRowHeight">
+    android:layout_height="@dimen/orderRowHeight"
+    android:background="?attr/selectableItemBackground">
 
     <ImageView
         android:id="@+id/orderIcon"
@@ -15,13 +16,11 @@
         android:layout_marginStart="@dimen/orderRowMarginSmall"
         android:layout_marginTop="@dimen/orderRowMarginSmall"
         android:alpha="0.75"
-        android:background="@drawable/rounded_order_icon"
         android:contentDescription="@string/order_name_placeholder"
-        android:padding="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_order_accepted" />
+        app:srcCompat="@drawable/order_list_icon_style" />
 
     <TextView
         android:id="@+id/orderName"
@@ -52,7 +51,7 @@
         android:tint="@color/orderStatusPending"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/orderIcon"
-        app:srcCompat="@drawable/ic_status_pending" />
+        app:srcCompat="@drawable/order_ic_status_pending" />
 
     <TextView
         android:id="@+id/orderStatus"

@@ -13,12 +13,16 @@
     <color name="black">#000000</color>
     <color name="white_greyish">#EEEEEE</color>
     <color name="pink">#fe104d</color>
+    <color name="dividerLight">#f2f2f2</color>
+
+    <!--Order Colors-->
+    <color name="orderListDivider">#e0e0e0</color>
     <color name="orderStatusDenied">#ef5350</color>
     <color name="orderStatusPending">#f9a825</color>
     <color name="orderStatusAccepted">#8bc34a</color>
-    <color name="orderIconForeground">#78000000</color>
-    <color name="orderIconBorder">#c4c4c4</color>
-    <color name="orderIconBackground">#e9e9e9</color>
+    <color name="orderIconForeground">#424242</color>
+    <color name="orderIconBorder">#e0e0e0</color>
+    <color name="orderIconBackground">#fff</color>
 
     <!--login-->
     <color name="loginPrimary">#49738b</color>

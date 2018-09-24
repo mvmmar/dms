@@ -14,21 +14,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".login.Login">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        <!-- <activity android:name=".MainActivity">
+        <!-- <activity android:name=".login.Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity> -->
+
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <activity
             android:name=".login.ForgotPassword"
@@ -68,15 +68,18 @@
             android:name=".product.ProductUpdate"
             android:windowSoftInputMode="adjustPan|adjustResize" />
         <activity
-            android:name=".order.OrderMain"
-            android:label="@string/order_main_title"
+            android:name=".orders.OrderMainActivity"
+            android:label="@string/order_main_name"
             android:parentActivityName=".MainActivity"
             android:windowSoftInputMode="adjustPan|adjustResize"
             tools:targetApi="jelly_bean" />
         <activity
-            android:name=".order.OrderView"
+            android:name=".orders.OrderAddActivity"
+            android:label="@string/order_add_label" />
+        <activity
+            android:name=".orders.OrderViewActivity"
             android:label="@string/order_name_placeholder"
-            android:parentActivityName=".order.OrderMain"
+            android:parentActivityName=".orders.OrderMainActivity"
             android:windowSoftInputMode="adjustPan|adjustResize"
             tools:targetApi="jelly_bean" />
     </application>

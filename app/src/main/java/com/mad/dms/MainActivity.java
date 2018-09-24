@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.mad.dms.R;
-import com.mad.dms.order.OrderMain;
+import com.mad.dms.orders.OrderMainActivity;
 import com.mad.dms.product.ProductMain;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         Class menu;
         switch (id) {
             case R.id.main_view_orders:
-                menu = OrderMain.class;
+                menu = OrderMainActivity.class;
                 break;
             case R.id.main_view_products:
                 menu = ProductMain.class;

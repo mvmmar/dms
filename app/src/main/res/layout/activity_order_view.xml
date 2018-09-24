@@ -5,251 +5,147 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clipToPadding="false"
-    android:orientation="vertical"
-    android:padding="16dp"
-    android:scrollbars="vertical"
-    tools:context="com.mad.dms.order.OrderView">
+    tools:context=".orders.OrderViewActivity">
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/orderViewCustomerDetails"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/orderRowMarginSmall"
-        android:clipToPadding="false">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <android.support.constraint.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="8dp">
-
-                <ImageView
-                    android:id="@+id/orderViewStatusIcon"
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_status_pending" />
-
-                <TextView
-                    android:id="@+id/orderViewStatus"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginStart="8dp"
-                    android:text="@string/order_status_placeholder"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/orderDeliveryDate"
-                    app:layout_constraintStart_toEndOf="@+id/orderViewStatusIcon"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/orderDeliveryDate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="right"
-                    android:text="@string/order_date_placeholder"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-            </android.support.constraint.ConstraintLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:padding="8dp">
-
-                <ImageView
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
-                    app:srcCompat="@drawable/ic_person" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginStart="8dp"
-                    android:text="Customer Name" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:padding="8dp">
-
-                <ImageView
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
-                    app:srcCompat="@drawable/ic_phone" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginStart="8dp"
-                    android:text="+94 77 123 1234" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:padding="8dp">
-
-                <ImageView
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
-                    app:srcCompat="@drawable/ic_email" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="16dp"
-                    android:text="example@email.com" />
-            </LinearLayout>
-        </LinearLayout>
-    </android.support.v7.widget.CardView>
-
-    <android.support.v7.widget.CardView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
         android:clipToPadding="false"
-        app:layout_constraintBottom_toTopOf="@+id/orderViewTotalView"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/orderViewCustomerDetails"
-
-        tools:layout_editor_absoluteX="8dp">
-
-        <ListView
-            android:id="@+id/orderViewProductsList"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </android.support.v7.widget.CardView>
-
-    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/orderViewTotalView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="8dp"
-        android:clipToPadding="false"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        card_view:cardCornerRadius="4dp"
-        card_view:layout_constraintBottom_toTopOf="@+id/orderViewAcceptDeny"
-        tools:layout_editor_absoluteX="8dp">
+        app:layout_constraintBottom_toTopOf="@+id/orderViewAcceptDeny"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:padding="16dp">
 
-            <android.support.constraint.ConstraintLayout
+            <android.support.v7.widget.CardView
+                android:id="@+id/orderViewOrderDetails"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="8dp">
+                android:layout_marginTop="@dimen/orderRowMarginSmall"
+                android:clipToPadding="false">
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginRight="8dp"
-                    android:text="Sub-Total"
+                <include layout="@layout/content_order_view_details" />
+            </android.support.v7.widget.CardView>
 
-                    card_view:layout_constraintEnd_toStartOf="@+id/subTotalValue"
-                    card_view:layout_constraintStart_toStartOf="parent" />
-
-                <TextView
-                    android:id="@+id/subTotalValue"
-                    android:layout_width="128dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:text="$ 22.00"
-                    android:textAlignment="textEnd"
-
-                    card_view:layout_constraintRight_toRightOf="parent" />
-            </android.support.constraint.ConstraintLayout>
-
-            <android.support.constraint.ConstraintLayout
+            <android.support.v7.widget.CardView
+                android:id="@+id/orderViewCustomerDetails"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="8dp">
+                android:layout_marginTop="@dimen/orderRowMarginSmall"
+                android:clipToPadding="false"
+                app:layout_constraintTop_toBottomOf="@id/orderViewOrderDetails">
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginRight="8dp"
-                    android:text="Taxes (10%)"
-                    card_view:layout_constraintEnd_toStartOf="@+id/orderTaxesValue"
-                    card_view:layout_constraintStart_toStartOf="parent" />
+                <include layout="@layout/content_order_view_customer" />
+            </android.support.v7.widget.CardView>
 
-                <TextView
-                    android:id="@+id/orderTaxesValue"
-                    android:layout_width="128dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:text="$ 5.10"
-                    android:textAlignment="textEnd"
-                    card_view:layout_constraintRight_toRightOf="parent" />
-            </android.support.constraint.ConstraintLayout>
-
-            <android.support.constraint.ConstraintLayout
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/orderViewTotalView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="8dp">
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/orderRowMarginSmall"
+                android:clipToPadding="false"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                card_view:cardCornerRadius="4dp"
+                tools:layout_editor_absoluteX="8dp">
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginRight="8dp"
-                    android:text="Total"
-                    android:textSize="18sp"
-                    card_view:layout_constraintBaseline_toBaselineOf="@+id/orderTotalValue"
-                    card_view:layout_constraintEnd_toStartOf="@+id/orderTotalValue"
-                    card_view:layout_constraintStart_toStartOf="parent" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/orderTotalValue"
-                    android:layout_width="128dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginEnd="4dp"
-                    android:layout_marginRight="4dp"
-                    android:text="$ 27.10"
-                    android:textAlignment="textEnd"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
-                    card_view:layout_constraintEnd_toEndOf="parent"
-                    card_view:layout_constraintTop_toTopOf="parent" />
-            </android.support.constraint.ConstraintLayout>
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginRight="8dp"
+                            android:text="@string/order_sub_total_label"
+
+                            card_view:layout_constraintEnd_toStartOf="@+id/subTotalValue"
+                            card_view:layout_constraintStart_toStartOf="parent" />
+
+                        <TextView
+                            android:id="@+id/subTotalValue"
+                            android:layout_width="128dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:text=""
+                            android:textAlignment="textEnd"
+
+                            card_view:layout_constraintRight_toRightOf="parent" />
+                    </android.support.constraint.ConstraintLayout>
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginRight="8dp"
+                            android:text="@string/order_taxes_label"
+                            card_view:layout_constraintEnd_toStartOf="@+id/orderTaxesValue"
+                            card_view:layout_constraintStart_toStartOf="parent" />
+
+                        <TextView
+                            android:id="@+id/orderTaxesValue"
+                            android:layout_width="128dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:text=""
+                            android:textAlignment="textEnd"
+                            card_view:layout_constraintRight_toRightOf="parent" />
+                    </android.support.constraint.ConstraintLayout>
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginRight="8dp"
+                            android:text="@string/order_total_label"
+                            android:textSize="18sp"
+                            card_view:layout_constraintBaseline_toBaselineOf="@+id/orderTotalValue"
+                            card_view:layout_constraintEnd_toStartOf="@+id/orderTotalValue"
+                            card_view:layout_constraintStart_toStartOf="parent" />
+
+                        <TextView
+                            android:id="@+id/orderTotalValue"
+                            android:layout_width="128dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_marginEnd="4dp"
+                            android:layout_marginRight="4dp"
+                            android:text=""
+                            android:textAlignment="textEnd"
+                            android:textSize="24sp"
+                            android:textStyle="bold"
+                            card_view:layout_constraintEnd_toEndOf="parent"
+                            card_view:layout_constraintTop_toTopOf="parent" />
+                    </android.support.constraint.ConstraintLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
         </LinearLayout>
-    </android.support.v7.widget.CardView>
+    </ScrollView>
 
     <LinearLayout
         android:id="@+id/orderViewAcceptDeny"
@@ -261,8 +157,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        tools:layout_editor_absoluteX="8dp"
-        android:visibility="gone">
+        tools:layout_editor_absoluteX="8dp">
 
         <android.support.design.button.MaterialButton
             android:id="@+id/orderViewDenyButton"
@@ -271,14 +166,14 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="4dp"
             android:layout_marginRight="4dp"
-            android:text="Deny" />
+            android:text="@string/order_deny_button" />
 
         <android.support.design.button.MaterialButton
             android:id="@+id/orderViewAcceptButton"
             style="@style/Widget.MaterialComponents.Button"
             android:layout_width="88dp"
             android:layout_height="wrap_content"
-            android:text="Accept"
+            android:text="@string/order_accept_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
     </LinearLayout>
