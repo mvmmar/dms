@@ -1,8 +1,6 @@
 package com.mad.dms.product;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,33 +12,37 @@ import com.mad.dms.R;
 
 import java.util.ArrayList;
 
-public class ProductCustomAdapter extends ArrayAdapter {
+public class ProductAdapter extends ArrayAdapter<Product> {
 
-    public ProductCustomAdapter(@NonNull Context context, ArrayList<Product> products) {
-        super(context, R.layout.product_custom_row, products);
+    private LayoutInflater layoutInflater;
+    private ArrayList<Product> products;
+    private int ViewResourceId;
+
+
+    public ProductAdapter(Context context,int textViewResourceId,ArrayList<Product> products){
+
+        super(context,textViewResourceId,products);
+        this.products=products;
+        layoutInflater=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        ViewResourceId=textViewResourceId;
     }
 
-    @NonNull
-    @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+    public View getView(int position, View convertView, ViewGroup parent){
+        convertView=layoutInflater.inflate(ViewResourceId,null);
 
-        //Now we are manually giving the operating the ArrayAdapter
-        LayoutInflater inflater= LayoutInflater.from(getContext());
-        View cusView = inflater.inflate(R.layout.product_custom_row,parent,false);
+        Product product = products.get(position);
 
-        //For array we've passed it works in a loop
-        Product product=(Product) getItem(position);
         String proName = product.ProductName;
         String proCategory= product.Category;
         String proDescription=product.Description;
         double proPrice = product.Price;
         int proQty = product.Quantity;
 
-        TextView productName = (TextView) cusView.findViewById(R.id.proName);
-        TextView productDes = (TextView) cusView.findViewById(R.id.proDescription);
-        TextView productPrice = (TextView) cusView.findViewById(R.id.proPrice);
-        TextView productQuantity = (TextView) cusView.findViewById(R.id.proQuantity);
-        ImageView productIcon=(ImageView)cusView.findViewById(R.id.productIcon);
+        TextView productName = (TextView) convertView.findViewById(R.id.proName);
+        TextView productDes = (TextView) convertView.findViewById(R.id.proDescription);
+        TextView productPrice = (TextView) convertView.findViewById(R.id.proPrice);
+        TextView productQuantity = (TextView) convertView.findViewById(R.id.proQuantity);
+        ImageView productIcon=(ImageView)convertView.findViewById(R.id.productIcon);
 
         switch (proCategory){
             case "Food":
@@ -64,7 +66,6 @@ public class ProductCustomAdapter extends ArrayAdapter {
         //ImageView image =(ImageView)cusView.findViewById(R.id.image);
         //image.setImageResource(R.drawable.ic_launcher_foreground);
 
-        return cusView;
-
+        return convertView;
     }
 }

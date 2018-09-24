@@ -4,33 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FCFCFC"
-    tools:context="com.mad.dms.product.ProductInsert">
+    tools:context=".product.ProductUpdate"
+    android:background="#FCFCFC">
 
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+    <!--<android.support.design.widget.AppBarLayout-->
+        <!--android:id="@+id/appBar"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="250dp"-->
+        <!--android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">-->
 
-        <android.support.design.widget.CollapsingToolbarLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:contentScrim="?attr/colorPrimary"
-            app:expandedTitleMarginEnd="64dp"
-            app:expandedTitleMarginStart="48dp"
-            app:layout_scrollFlags="exitUntilCollapsed|scroll"
-            app:title="Distributor Management">
+        <!--<android.support.design.widget.CollapsingToolbarLayout-->
+            <!--android:id="@+id/collapsingToolbar"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--app:layout_scrollFlags="exitUntilCollapsed|scroll"-->
+            <!--app:contentScrim="?attr/colorPrimary"-->
+            <!--app:title="Distributor Management"-->
+            <!--app:expandedTitleMarginStart="48dp"-->
+            <!--app:expandedTitleMarginEnd="64dp"-->
+            <!--android:background="@drawable/background">-->
 
-            <android.support.v7.widget.Toolbar
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:layout_collapseMode="pin"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+            <!--<android.support.v7.widget.Toolbar-->
+                <!--android:id="@+id/toolbarid"-->
+                <!--app:popupTheme="@style/ThemeOverlay.AppCompat.Light"-->
+                <!--app:layout_collapseMode="pin"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="?attr/actionBarSize"/>-->
 
-        </android.support.design.widget.CollapsingToolbarLayout>
+        <!--</android.support.design.widget.CollapsingToolbarLayout>-->
 
 
-    </android.support.design.widget.AppBarLayout>
+    <!--</android.support.design.widget.AppBarLayout>-->
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -42,76 +46,118 @@
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/dashboardBackground"
+            tools:context=".MainActivity"
             android:orientation="vertical"
-            tools:context="com.project.dms.com.mad.dms.MainActivity">
+            android:background="@color/azur">
 
             <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
                 android:layout_margin="30dp"
-                app:cardCornerRadius="4dp">
+                app:cardCornerRadius="4dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
 
                 <LinearLayout
+                    android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:padding="16dp">
 
                     <TextView
+                        android:layout_marginTop="30dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="30dp"
                         android:text="Product Update"
                         android:textSize="25sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:layout_gravity="center_horizontal"/>
 
                     <EditText
-                        android:id="@+id/pName"
+                        android:hint="Product Name"
+                        android:layout_marginTop="30dp"
                         android:layout_width="300dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="30dp"
-                        android:hint="Product Name" />
+                        android:id="@+id/pName"/>
+
+                    <Spinner
+                        android:id="@+id/spinner"
+                        android:layout_width="300dp"
+                        android:layout_height="35dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="55dp"
+                        android:entries="@array/category" />
 
                     <EditText
-                        android:id="@+id/pDescription"
+                        android:hint="Description"
+                        android:layout_marginTop="30dp"
                         android:layout_width="300dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="30dp"
-                        android:hint="Description" />
+                        android:id="@+id/pDescription"/>
 
                     <EditText
-                        android:id="@+id/pQuantity"
-                        android:layout_width="300dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="30dp"
-                        android:background="@drawable/edit_text_style"
                         android:hint="Initial Quantity"
-                        android:inputType="number" />
-
-                    <EditText
-                        android:id="@+id/pPrice"
+                        android:background="@drawable/edittextstyle"
+                        android:layout_marginTop="30dp"
                         android:layout_width="300dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="30dp"
-                        android:background="@drawable/edit_text_style"
-                        android:hint="Selling Price"
-                        android:inputType="numberDecimal" />
+                        android:inputType="number"
+                        android:id="@+id/pQuantity"/>
 
-                    <Button
+                    <EditText
+                        android:hint="Selling Price"
+                        android:background="@drawable/edittextstyle"
+                        android:layout_marginTop="30dp"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:inputType="numberDecimal"
+                        android:id="@+id/pPrice"/>
+
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginBottom="40dp"
-                        android:layout_marginTop="35dp"
-                        android:background="@drawable/buttonstyle"
-                        android:onClick="productUpdateBtn"
-                        android:text="UPADTE PRODUCT"
-                        android:textColor="@color/white" />
+                        android:orientation="horizontal"
+                        android:layout_marginTop="40dp"
+                        android:layout_gravity="center">
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:textColor="@color/white"
+                            android:background="@drawable/buttonstyle"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="35dp"
+                            android:layout_marginBottom="40dp"
+                            android:text="EDIT"
+                            android:onClick="btnManipulate"
+                            android:id="@+id/btnUpdate"
+                            android:layout_marginRight="30dp"/>
+
+                        <ProgressBar
+                            android:id="@+id/progressBar"
+                            style="?android:attr/progressBarStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+
+                        <Button
+                            android:layout_marginLeft="30dp"
+                            android:layout_width="wrap_content"
+                            android:textColor="@color/white"
+                            android:background="@drawable/buttonstyle"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="35dp"
+                            android:layout_marginBottom="40dp"
+                            android:text="DELETE"
+                            android:onClick="btnManipulate"
+                            android:id="@+id/btnDelete"/>
+
+
+                    </LinearLayout>
+
 
                 </LinearLayout>
 

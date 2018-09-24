@@ -30,6 +30,7 @@
             </intent-filter>
         </activity>
 
+        <!-- Login -->
         <activity
             android:name=".login.ForgotPassword"
             android:theme="@style/LoginTheme" />
@@ -50,23 +51,22 @@
             android:theme="@style/AppTheme2" />
         <activity
             android:name=".salesRep.ViewSalesRep"
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/AppTheme" />
+
+        <!-- Products -->
         <activity
-            android:name=".product.ProductInsert"
-            android:parentActivityName=".product.ProductMain"
-            android:windowSoftInputMode="adjustPan|adjustResize"
-            tools:targetApi="jelly_bean" />
+            android:name=".product.ProductView"
+            android:label="Products"
+            android:parentActivityName=".MainActivity" />
         <activity
-            android:name="product.ProductMain"
-            android:parentActivityName=".MainActivity"
-            android:windowSoftInputMode="adjustPan|adjustResize"
-            tools:targetApi="jelly_bean" />
-        <activity
-            android:name=".product.ProductPopUp"
-            android:windowSoftInputMode="adjustPan|adjustResize" />
+            android:name=".product.ProductAdd"
+            android:label="Add Product"
+            android:parentActivityName=".product.ProductView" />
         <activity
             android:name=".product.ProductUpdate"
-            android:windowSoftInputMode="adjustPan|adjustResize" />
+            android:parentActivityName=".product.ProductView" />
+
+        <!-- Orders -->
         <activity
             android:name=".orders.OrderMainActivity"
             android:label="@string/order_main_name"

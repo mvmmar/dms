@@ -1,8 +1,12 @@
 package com.mad.dms.product;
 
-public class Product {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Product implements Parcelable {
 
     public int ProductId;
+    public String Category;
     public String ProductName;
     public String Description;
     public double Price;
@@ -11,8 +15,9 @@ public class Product {
     public Product() {
     }
 
-    public Product(String productName, String description, double price, int quantity) {
+    public Product(String productName, String category,String description, double price, int quantity) {
         ProductName = productName;
+        Category=category;
         Description = description;
         Price = price;
         Quantity = quantity;
@@ -24,6 +29,14 @@ public class Product {
 
     public void setProductId(int productId) {
         ProductId = productId;
+    }
+
+    public String getCategory() {
+        return Category;
+    }
+
+    public void setCategory(String category) {
+        Category = category;
     }
 
     public String getProductName() {
@@ -57,4 +70,41 @@ public class Product {
     public void setQuantity(int quantity) {
         Quantity = quantity;
     }
+
+    protected Product(Parcel in) {
+        ProductId = in.readInt();
+        Category = in.readString();
+        ProductName = in.readString();
+        Description = in.readString();
+        Price = in.readDouble();
+        Quantity = in.readInt();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(ProductId);
+        dest.writeString(Category);
+        dest.writeString(ProductName);
+        dest.writeString(Description);
+        dest.writeDouble(Price);
+        dest.writeInt(Quantity);
+    }
+
+    @SuppressWarnings("unused")
+    public static final Parcelable.Creator<Product> CREATOR = new Parcelable.Creator<Product>() {
+        @Override
+        public Product createFromParcel(Parcel in) {
+            return new Product(in);
+        }
+
+        @Override
+        public Product[] newArray(int size) {
+            return new Product[size];
+        }
+    };
 }

@@ -50,4 +50,12 @@
     <string name="order_total_label">Total</string>
     <string name="order_deny_button">Deny</string>
     <string name="order_accept_button">Accept</string>
+
+    <!-- Products -->
+    <array name="category">
+        <item>""</item>
+        <item>Food</item>
+        <item>Cosmatic</item>
+        <item>Stationary</item>
+    </array>
 </resources>
