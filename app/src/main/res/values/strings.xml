@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">DMS</string>
-    <string name="action_settings">Settings</string>
     <!-- Main view -->
     <string name="main_view_orders_title">Orders</string>
     <string name="main_view_orders_desc">View your orders</string>
@@ -13,26 +13,24 @@
     <string name="main_view_desc_shops">View shops</string>
 
     <!-- Login -->
-    <string name="email">Email Id</string>
+    <string name="email">Email</string>
     <string name="passowrd">Password</string>
     <string name="signin">Sign In</string>
     <string name="login">LOGIN</string>
     <string name="show_pwd">Show Password</string>
     <string name="hide_pwd">Hide Password</string>
     <string name="forgot">Forgot Password</string>
-    <string name="fullName">Full Name</string>
+    <string name="Name">Name</string>
     <string name="mobileNumber">Mobile Number</string>
     <string name="confirmPassword">Confirm Password</string>
-    <string name="registered_emailid">Please enter your Registered Email Id below:</string>
+    <string name="registered_emailid">Please Enter Your Registered Email Below:</string>
     <string name="submit">SUBMIT</string>
     <string name="back">BACK</string>
 
     <!--Order Strings-->
-    <string name="order_main_name">Orders</string>
     <string name="order_date_placeholder">DD/MM/YY</string>
     <string name="order_name_placeholder">Order name</string>
     <string name="order_status_placeholder">Order Status</string>
-    <string name="order_add_label">Add new order</string>
 
     <!--Add order-->
     <string name="order_add_name_label">Name</string>

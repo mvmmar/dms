@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <color name="colorPrimary">#4b307c</color>
-    <color name="colorPrimaryDark">#342156</color>
+    <!-- <color name="colorPrimaryDark">#342156</color> -->
+    <color name="colorPrimaryDark">#352a49</color>
     <color name="colorAccent">#ff2b47</color>
     <color name="backgroundColor">#FCFCFC</color>
     <color name="dashboardBackground">#F1F5F8</color>
@@ -11,12 +13,15 @@
     <color name="yellow">#FFB300</color>
     <color name="green">#00BFA5</color>
     <color name="white">#FFFFFF</color>
-    <color name="black">#000000</color>
     <color name="white_greyish">#EEEEEE</color>
     <color name="pink">#fe104d</color>
     <color name="dividerLight">#f2f2f2</color>
     <color name="orderIconFG">#424242</color>
     <color name="orderIconBG">#e0e0e0</color>
+
+    <!--login-->
+    <color name="loginPrimary">#49738b</color>
+    <color name="loginPrimaryDark">#2e5077</color>
 
     <!--Order Colors-->
     <color name="orderListDivider">#e0e0e0</color>
@@ -27,7 +32,4 @@
     <color name="orderIconBorder">#e0e0e0</color>
     <color name="orderIconBackground">#fff</color>
 
-    <!--login-->
-    <color name="loginPrimary">#49738b</color>
-    <color name="loginPrimaryDark">#2e5077</color>
 </resources>

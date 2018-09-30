@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/dashboardBackground"
-    tools:context=".Admin.AddSalesRep">
+    tools:context="com.mad.dms.SalesRep.SalesRepProfileSettings">
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -20,7 +20,7 @@
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="25dp"
+                android:layout_margin="20dp"
                 app:cardCornerRadius="4dp">
 
                 <LinearLayout
@@ -33,13 +33,14 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="30dp"
-                        android:text="Sales-Rep Registration"
-                        android:textSize="25sp"
-                        android:textStyle="bold" />
+                        android:text="Edit Sales-Rep"
+                        android:textSize="36sp"
+                        android:textStyle="bold|italic"
+                        android:typeface="serif" />
 
                     <EditText
-                        android:id="@+id/SU_Name"
-                        android:layout_width="290dp"
+                        android:id="@+id/MSR_name"
+                        android:layout_width="295dp"
                         android:layout_height="50dp"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="30dp"
@@ -51,8 +52,8 @@
 
 
                     <EditText
-                        android:id="@+id/SU_Email"
-                        android:layout_width="290dp"
+                        android:id="@+id/MSR_email"
+                        android:layout_width="295dp"
                         android:layout_height="50dp"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="30dp"
@@ -63,8 +64,8 @@
                         android:inputType="textEmailAddress" />
 
                     <EditText
-                        android:id="@+id/SU_Phoneno"
-                        android:layout_width="290dp"
+                        android:id="@+id/MSR_phoneNo"
+                        android:layout_width="295dp"
                         android:layout_height="50dp"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="30dp"
@@ -75,8 +76,8 @@
                         android:inputType="phone" />
 
                     <EditText
-                        android:id="@+id/SU_Password"
-                        android:layout_width="290dp"
+                        android:id="@+id/MSR_password"
+                        android:layout_width="295dp"
                         android:layout_height="50dp"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="30dp"
@@ -86,27 +87,26 @@
                         android:hint="@string/passowrd"
                         android:inputType="textPassword" />
 
-                    <EditText
-                        android:id="@+id/SU_ConPassword"
-                        android:layout_width="290dp"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="30dp"
-                        android:background="@drawable/edit_text_style"
-                        android:drawableLeft="@drawable/conpassword"
-                        android:drawablePadding="8dp"
-                        android:hint="@string/confirmPassword"
-                        android:inputType="textPassword" />
-
                     <Button
-                        android:id="@+id/addSRBtn"
+                        android:id="@+id/MSR_Update"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginBottom="40dp"
-                        android:layout_marginTop="35dp"
+                        android:layout_marginBottom="25dp"
+                        android:layout_marginTop="25dp"
                         android:background="@drawable/buttonstyle"
-                        android:text="Add Rep"
+                        android:text="Update"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
+
+                    <Button
+                        android:id="@+id/MSR_Delete"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="30dp"
+                        android:background="@drawable/buttonstyle"
+                        android:text="Delete"
                         android:textColor="@color/white"
                         android:textSize="14sp" />
 

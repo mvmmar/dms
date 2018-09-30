@@ -1,87 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="com.mad.dms">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name=".DMS"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-
-        <!-- <activity android:name=".login.Login">
+        android:theme="@style/LoginTheme">
+        <activity
+            android:name=".SignIn.Login"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity> -->
-
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <!-- Login -->
         <activity
-            android:name=".login.ForgotPassword"
+            android:name=".SignIn.ForgotPassword"
+            android:screenOrientation="portrait"
             android:theme="@style/LoginTheme" />
         <activity
-            android:name=".admin.AdminHome"
+            android:name=".SalesRep.SalesRepHome"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".salesRep.SalesRepHome"
+            android:name=".Admin.AdminHome"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"/>
+        <activity
+            android:name=".Admin.AddSalesRep"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".salesRep.AddSalesRep"
+            android:name=".SalesRep.SalesRepProfileSettings"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".salesRep.SalesRepProfileSettings"
-            android:theme="@style/AppTheme2" />
-        <activity
-            android:name=".admin.AdminProfileSettings"
-            android:theme="@style/AppTheme2" />
-        <activity
-            android:name=".salesRep.ViewSalesRep"
+            android:name=".Admin.AdminProfileSettings"
             android:theme="@style/AppTheme" />
-
-        <!-- Products -->
         <activity
-            android:name=".product.ProductView"
-            android:label="Products"
-            android:parentActivityName=".MainActivity" />
+            android:name=".Admin.ViewSalesRep"
+            android:theme="@style/AppTheme" />
         <activity
-            android:name=".product.ProductAdd"
-            android:label="Add Product"
-            android:parentActivityName=".product.ProductView" />
-        <activity
-            android:name=".product.ProductUpdate"
-            android:parentActivityName=".product.ProductView" />
-
-        <!-- Orders -->
-        <activity
-            android:name=".orders.OrderMainActivity"
-            android:label="@string/order_main_name"
-            android:parentActivityName=".MainActivity"
-            android:windowSoftInputMode="adjustPan|adjustResize"
-            tools:targetApi="jelly_bean" />
-        <activity
-            android:name=".orders.OrderAddActivity"
-            android:label="@string/order_add_label" />
-        <activity
-            android:name=".orders.OrderViewActivity"
-            android:label="@string/order_name_placeholder"
-            android:parentActivityName=".orders.OrderMainActivity"
-            android:windowSoftInputMode="adjustPan|adjustResize"
-            tools:targetApi="jelly_bean" />
+            android:name=".Admin.ManageSalesRep"
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>

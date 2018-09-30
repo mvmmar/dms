@@ -1,4 +1,4 @@
-package com.mad.dms.salesRep;
+package com.mad.dms.SalesRep;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -7,21 +7,34 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.LinearLayout;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.mad.dms.login.Login;
+import com.mad.dms.Admin.AddSalesRep;
+import com.mad.dms.Admin.AdminHome;
+import com.mad.dms.Admin.ViewSalesRep;
 import com.mad.dms.R;
+import com.mad.dms.SignIn.Login;
 
-public class SalesRepHome extends AppCompatActivity {
-    private FirebaseAuth firebaseAuth;
+public class SalesRepHome extends AppCompatActivity implements View.OnClickListener{
+    private LinearLayout salesRep;
+    private LinearLayout product;
+    private LinearLayout shop;
+    private LinearLayout order;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sales_rep_home);
 
-        //get firebase auth instance
-        firebaseAuth = FirebaseAuth.getInstance();
+        product = findViewById(R.id.ADProduct);
+        product.setOnClickListener(this);
+
+        shop = findViewById(R.id.ADShop);
+        shop.setOnClickListener(this);
+
+        order = findViewById(R.id.ADOrder);
+        order.setOnClickListener(this);
 
     }
 
@@ -49,10 +62,9 @@ public class SalesRepHome extends AppCompatActivity {
 
     //sign out method
     void signOut() {
-        firebaseAuth.signOut();
         Intent i = new Intent(SalesRepHome.this, Login.class);
+        finishAffinity();
         startActivity(i);
-        finish();
     }
 
     @Override
@@ -62,7 +74,6 @@ public class SalesRepHome extends AppCompatActivity {
                 .setCancelable(false)
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        firebaseAuth.signOut();
                         finishAffinity();
                     }
                 })
@@ -74,5 +85,26 @@ public class SalesRepHome extends AppCompatActivity {
         AlertDialog alert = builder.create();
         alert.show();
 
+    }
+
+    @Override
+    public void onClick(View v) {
+//        switch (v.getId()) {
+//            case R.id.ADProduct:
+//                Intent i2 = new Intent(SalesRepHome.this, ViewSalesRep.class);
+//                startActivity(i2);
+//                this.overridePendingTransition(R.anim.left_enter, R.anim.right_out);
+//                break;
+//            case R.id.ADShop:
+//                Intent i3 = new Intent(SalesRepHome.this, ViewSalesRep.class);
+//                startActivity(i3);
+//                this.overridePendingTransition(R.anim.right_enter, R.anim.left_out);
+//                break;
+//            case R.id.ADOrder:
+//                Intent i4 = new Intent(SalesRepHome.this, ViewSalesRep.class);
+//                startActivity(i4);
+//                this.overridePendingTransition(R.anim.left_enter, R.anim.right_out);
+//                break;
+//        }
     }
 }
