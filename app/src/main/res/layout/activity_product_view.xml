@@ -7,10 +7,11 @@
     tools:context=".product.ProductView"
     android:background="#FCFCFC">
 
-    <ListView
-        android:id="@+id/productListView"
+    <EditText
+        android:id="@+id/editText"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        android:hint="Search / ! for shortage" />
 
     <android.support.design.widget.FloatingActionButton
         android:layout_width="wrap_content"
@@ -18,10 +19,18 @@
         android:layout_marginBottom="16dp"
         android:clickable="true"
         android:onClick="setOnClick"
-        android:src="@drawable/ic_local_offer_black_24dp"
+        app:srcCompat="@drawable/ic_local_offer_black_24dp"
         app:layout_anchorGravity="center_horizontal|bottom"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ListView
+        android:id="@+id/productListView"
+        android:layout_width="400dp"
+        android:layout_height="520dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText" />
 
 </android.support.constraint.ConstraintLayout>

@@ -53,9 +53,9 @@
 
     <!-- Products -->
     <array name="category">
-        <item>""</item>
+        <item>"Please select a Category"</item>
         <item>Food</item>
-        <item>Cosmatic</item>
+        <item>Cosmetics</item>
         <item>Stationary</item>
     </array>
 </resources>

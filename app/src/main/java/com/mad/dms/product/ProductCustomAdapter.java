@@ -1,6 +1,7 @@
 package com.mad.dms.product;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -58,8 +59,10 @@ public class ProductCustomAdapter extends ArrayAdapter {
 
         productName.setText(proName);
         productDes.setText(proDescription);
-        productPrice.setText(Double.toString(proPrice));
-        productQuantity.setText(Integer.toString(proQty));
+        productPrice.setText("Rs."+Double.toString(proPrice));
+        if(proQty<10)
+            productQuantity.setTextColor(Color.RED);
+        productQuantity.setText("Qty: "+Integer.toString(proQty));
 
         //ImageView image =(ImageView)cusView.findViewById(R.id.image);
         //image.setImageResource(R.drawable.ic_launcher_foreground);

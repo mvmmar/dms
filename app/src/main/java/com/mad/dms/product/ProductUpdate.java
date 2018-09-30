@@ -78,7 +78,7 @@ public class ProductUpdate extends AppCompatActivity {
                     try{
 
                         if(!pName.getText().toString().isEmpty()){
-                            if(!spinner.getSelectedItem().toString().isEmpty()){
+                            if(!spinner.getSelectedItem().toString().equals("Please select a Category")){
                                 if(!pDescription.getText().toString().isEmpty()){
                                     if (!pPrice.getText().toString().isEmpty()){
                                         if(!pQuantity.getText().toString().isEmpty()){

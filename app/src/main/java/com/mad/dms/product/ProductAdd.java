@@ -44,12 +44,19 @@ public class ProductAdd extends AppCompatActivity {
 
                                         String pro_Name=pName.getText().toString();
                                         String pro_Category=spinner.getSelectedItem().toString();
-                                        String pro_Description=pDescription.getText().toString();
-                                        double pro_Price=Double.parseDouble(pPrice.getText().toString());
-                                        int pro_Qty=Integer.parseInt(pQuantity.getText().toString());
 
-                                        Product product = new Product(pro_Name,pro_Category,pro_Description,pro_Price,pro_Qty);
-                                        addData(product);
+                                        if(!pro_Category.equals("Please select a Category")){
+                                            String pro_Description=pDescription.getText().toString();
+                                            double pro_Price=Double.parseDouble(pPrice.getText().toString());
+                                            int pro_Qty=Integer.parseInt(pQuantity.getText().toString());
+
+                                            Product product = new Product(pro_Name,pro_Category,pro_Description,pro_Price,pro_Qty);
+                                            addData(product);
+
+                                        }
+                                        else
+                                            Toast.makeText(ProductAdd.this,"Category should be Selected!!!",Toast.LENGTH_LONG).show();
+
                                     }
                                     else
                                         Toast.makeText(ProductAdd.this,"Quantity cannot be Empty!!!",Toast.LENGTH_LONG).show();
@@ -92,3 +99,4 @@ public class ProductAdd extends AppCompatActivity {
             Toast.makeText(ProductAdd.this,"Error while Inserting....",Toast.LENGTH_LONG).show();
     }
 }
+

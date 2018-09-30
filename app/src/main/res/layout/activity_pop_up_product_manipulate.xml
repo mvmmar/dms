@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="350dp"
     android:layout_height="475dp"
     android:layout_gravity="center"
-    android:background="@color/azur"
+    android:background="@drawable/edittextstyle"
     android:orientation="vertical"
     android:padding="16dp">
 
@@ -11,6 +12,8 @@
         android:id="@+id/txtClose"
         android:layout_width="30dp"
         android:layout_height="30dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
         android:layout_gravity="end"
         android:background="@drawable/circle_backgroud"
         android:gravity="center"
@@ -28,17 +31,19 @@
             android:layout_width="wrap_content"
             android:layout_height="126dp"
             android:layout_gravity="center"
-            android:src="@drawable/save" />
+            android:src="@drawable/save"
+            android:id="@+id/image"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/orderIconFG"
+            android:textSize="25dp"
+            android:textStyle="bold"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="5dp"
             android:text="Products"
-            android:textColor="@color/orderIconFG"
-            android:textSize="25dp"
-            android:textStyle="bold" />
+            android:id="@+id/productName"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
