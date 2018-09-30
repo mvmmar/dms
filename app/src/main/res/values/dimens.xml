@@ -7,8 +7,9 @@
     <dimen name="orderRowMarginLarge">16dp</dimen>
     <dimen name="orderRowMarginSmall">8dp</dimen>
     <dimen name="orderRowHeight">64dp</dimen>
-    <dimen name="orderRowIconSize">48dp</dimen>
+    <dimen name="orderRowIconSize">64dp</dimen>
     <dimen name="orderRowIconPadding">6dp</dimen>
     <dimen name="orderRowStatusIconSize">16dp</dimen>
+    <dimen name="row_icon_size">64dp</dimen>
     <!-- Default screen margins, per the Android Design guidelines. -->
 </resources>

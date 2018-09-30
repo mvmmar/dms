@@ -4,13 +4,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/orderRowHeight"
+    android:layout_height="wrap_content"
     android:background="?attr/selectableItemBackground">
 
     <ImageView
         android:id="@+id/orderIcon"
-        android:layout_width="@dimen/orderRowIconSize"
-        android:layout_height="@dimen/orderRowIconSize"
+        android:layout_width="@dimen/row_icon_size"
+        android:layout_height="@dimen/row_icon_size"
         android:layout_marginBottom="@dimen/orderRowMarginSmall"
         android:layout_marginLeft="@dimen/orderRowMarginSmall"
         android:layout_marginStart="@dimen/orderRowMarginSmall"

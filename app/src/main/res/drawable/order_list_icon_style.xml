@@ -11,7 +11,7 @@
             <stroke
                 android:width="0.5dp"
                 android:color="@color/orderIconBorder" />
-            <corners android:radius="4dp" />
+            <corners android:radius="2dp" />
             <padding
                 android:bottom="0dp"
                 android:left="0dp"
