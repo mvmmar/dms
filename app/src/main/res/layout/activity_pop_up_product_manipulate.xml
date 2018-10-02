@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="350dp"
     android:layout_height="475dp"
     android:layout_gravity="center"
@@ -13,11 +12,12 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_gravity="end"
+        android:layout_marginEnd="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginTop="5dp"
         android:background="@drawable/circle_backgroud"
         android:gravity="center"
-        android:text="X"
+        android:text="@string/close_icon"
         android:textColor="@color/pink"
         android:textStyle="bold" />
 
@@ -32,6 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="126dp"
             android:layout_gravity="center"
+            android:contentDescription="@string/product_icon"
             android:src="@drawable/save" />
 
         <TextView
@@ -40,9 +41,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="5dp"
-            android:text="Products"
+            android:text="@string/products"
             android:textColor="@color/orderIconFG"
-            android:textSize="25dp"
+            android:textSize="25sp"
             android:textStyle="bold" />
 
         <LinearLayout
@@ -56,9 +57,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
                 android:background="@drawable/round_button"
-                android:text="-"
+                android:text="@string/ic_minus"
                 android:textColor="@color/white"
-                android:textSize="14dp" />
+                android:textSize="14sp" />
 
             <EditText
                 android:id="@+id/qty"
@@ -67,9 +68,9 @@
                 android:layout_marginTop="40dp"
                 android:background="@drawable/edittextstyle"
                 android:gravity="center"
-                android:hint="Quantity"
+                android:hint="@string/quantity"
                 android:textColor="@android:color/black"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <Button
@@ -78,9 +79,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
                 android:background="@drawable/round_button"
-                android:text="+"
+                android:text="@string/ic_plus"
                 android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:textSize="20sp" />
 
         </LinearLayout>
 
@@ -96,9 +97,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:background="@drawable/buttonstyle"
-            android:text="ADD TO STOCK"
+            android:text="@string/add_to_stock"
             android:textColor="@color/white" />
-
 
         <TextView
             android:id="@+id/managePro"
@@ -106,11 +106,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:gravity="center_horizontal"
-            android:text="MANAGE PRODUCT"
+            android:text="@string/manage_product"
             android:textStyle="bold" />
-
-
     </LinearLayout>
-
-
 </LinearLayout>

@@ -1,11 +1,14 @@
 package com.mad.dms.orders;
 
+import android.annotation.TargetApi;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.PorterDuff;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
@@ -24,18 +27,19 @@ import android.widget.Toast;
 import com.mad.dms.R;
 import com.mad.dms.utils.FmtHelper;
 
-import java.sql.Date;
 import java.util.Calendar;
+import java.util.Objects;
 
 public class OrderViewActivity extends AppCompatActivity {
 
-    int orderId, orderPos;
-    boolean pending;
-    Order order;
-    OrderDBHelper db;
-    Intent replyIntent;
+    private int orderId;
+    private int orderPos;
+    private boolean pending;
+    private Order order;
+    private OrderDBHelper db;
+    private Intent replyIntent;
 
-    public static final String VIEW_ORDER_REPLY_ID = "com.mad.dms.orders.ORDER_UPDATE_REPLY";
+    private static final String VIEW_ORDER_REPLY_ID = "com.mad.dms.orders.ORDER_UPDATE_REPLY";
     public static final String VIEW_ORDER_REPLY_POS = "com.mad.dms.orders.ORDER_UPDATE_REPLY";
 
     public static final int VIEW_ORDER_DETAILS_REQUEST_CODE = 1;
@@ -178,7 +182,7 @@ public class OrderViewActivity extends AppCompatActivity {
 
         final AlertDialog alertDialog = dialogBuilder.create();
 //        final EditText orderInput = view.findViewById(R.id.order_update_date);
-        orderDateInput = view.findViewById(R.id.order_update_date);;
+        orderDateInput = view.findViewById(R.id.order_update_date);
 
         orderDateInput.setText("");
         String placeholderDate = FmtHelper.formatShortDate(order.getAcceptedDate());
@@ -234,14 +238,13 @@ public class OrderViewActivity extends AppCompatActivity {
         }
     }
 
-    private void updateOrder(String name) {
-    }
-
     public static class DatePickerFragment extends DialogFragment
             implements DatePickerDialog.OnDateSetListener {
 
         public String selected;
 
+        @TargetApi(Build.VERSION_CODES.KITKAT)
+        @NonNull
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             // Use the current date as the default date in the picker
@@ -251,7 +254,7 @@ public class OrderViewActivity extends AppCompatActivity {
             int day = c.get(Calendar.DAY_OF_MONTH);
 
             // Create a new instance of DatePickerDialog and return it
-            return new DatePickerDialog(getActivity(), this, year, month, day);
+            return new DatePickerDialog(Objects.requireNonNull(getActivity()), this, year, month, day);
         }
 
         public void onDateSet(DatePicker view, int year, int month, int day) {

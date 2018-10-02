@@ -22,12 +22,12 @@ public class ProductAdd extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_add);
 
-        pName = (EditText)findViewById(R.id.pName);
-        pDescription = (EditText)findViewById(R.id.pDescription);
-        pQuantity = (EditText)findViewById(R.id.pQuantity);
-        pPrice = (EditText)findViewById(R.id.pPrice);
-        spinner=(Spinner)findViewById(R.id.spinner);
-        btn_add = (Button)findViewById(R.id.btn_add);
+        pName = findViewById(R.id.pName);
+        pDescription = findViewById(R.id.pDescription);
+        pQuantity = findViewById(R.id.pQuantity);
+        pPrice = findViewById(R.id.pPrice);
+        spinner = findViewById(R.id.spinner);
+        btn_add = findViewById(R.id.btn_add);
         databaseHelper= new DatabaseHelper(this);
 
         btn_add.setOnClickListener(new View.OnClickListener() {

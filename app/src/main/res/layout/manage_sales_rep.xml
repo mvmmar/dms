@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dashboardBackground"
     tools:context="com.mad.dms.salesrep.SalesRepProfileSettings">
 
     <android.support.v4.widget.NestedScrollView
@@ -33,7 +32,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="30dp"
-                        android:text="Edit Sales-Rep"
+                        android:text="@string/edit_sales_rep"
                         android:textSize="36sp"
                         android:textStyle="bold|italic"
                         android:typeface="serif" />
@@ -47,6 +46,7 @@
                         android:background="@drawable/edit_text_style"
                         android:drawableLeft="@drawable/user"
                         android:drawablePadding="8dp"
+                        android:drawableStart="@drawable/user"
                         android:hint="@string/Name"
                         android:inputType="textCapWords" />
 
@@ -60,6 +60,7 @@
                         android:background="@drawable/edit_text_style"
                         android:drawableLeft="@drawable/email"
                         android:drawablePadding="8dp"
+                        android:drawableStart="@drawable/email"
                         android:hint="@string/email"
                         android:inputType="textEmailAddress" />
 
@@ -72,6 +73,7 @@
                         android:background="@drawable/edit_text_style"
                         android:drawableLeft="@drawable/phone"
                         android:drawablePadding="8dp"
+                        android:drawableStart="@drawable/phone"
                         android:hint="@string/mobileNumber"
                         android:inputType="phone" />
 
@@ -84,6 +86,7 @@
                         android:background="@drawable/edit_text_style"
                         android:drawableLeft="@drawable/password"
                         android:drawablePadding="8dp"
+                        android:drawableStart="@drawable/password"
                         android:hint="@string/passowrd"
                         android:inputType="textPassword" />
 
@@ -95,7 +98,7 @@
                         android:layout_marginBottom="25dp"
                         android:layout_marginTop="25dp"
                         android:background="@drawable/buttonstyle"
-                        android:text="Update"
+                        android:text="@string/update"
                         android:textColor="@color/white"
                         android:textSize="14sp" />
 
@@ -106,14 +109,12 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_marginBottom="30dp"
                         android:background="@drawable/buttonstyle"
-                        android:text="Delete"
+                        android:text="@string/delete"
                         android:textColor="@color/white"
                         android:textSize="14sp" />
 
                 </LinearLayout>
-
             </android.support.v7.widget.CardView>
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
-
 </android.support.design.widget.CoordinatorLayout>

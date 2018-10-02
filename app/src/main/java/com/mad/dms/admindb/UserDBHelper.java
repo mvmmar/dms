@@ -81,10 +81,7 @@ public class UserDBHelper extends SQLiteOpenHelper {
 
         long i = db.insert(USER_TABLE, null, values);
 
-        if (i == -1)
-            return false;
-        else
-            return true;
+        return i != -1;
     }
 
     // Get User Details
@@ -102,7 +99,7 @@ public class UserDBHelper extends SQLiteOpenHelper {
             user.setPassword(cursor.getString(cursor.getColumnIndex(USER_PASSWORD)));
             userList.add(user);
         }
-
+        cursor.close();
         return userList;
     }
 
@@ -114,7 +111,7 @@ public class UserDBHelper extends SQLiteOpenHelper {
         while (cursor.moveToNext()) {
             password = cursor.getString(cursor.getColumnIndex(USER_PASSWORD));
         }
-
+        cursor.close();
         return password;
     }
 
@@ -126,7 +123,7 @@ public class UserDBHelper extends SQLiteOpenHelper {
         if (cursor.moveToNext()) {
             UserEmail = false;
         }
-
+        cursor.close();
         return UserEmail;
     }
 

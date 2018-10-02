@@ -33,7 +33,7 @@ public class ViewSalesRep extends AppCompatActivity {
 
         udb = new UserDBHelper(this);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -14,14 +14,13 @@ import android.widget.TextView;
 import com.mad.dms.R;
 import com.mad.dms.utils.FmtHelper;
 
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class OrderMainAdapter extends RecyclerView.Adapter<OrderMainAdapter.OrdersViewHolder> {
 
     private ItemClickListener mClickListener;
-    private LayoutInflater mInflater;
-    private List<Order> mOrders;  // cached copy of orders
+    private final LayoutInflater mInflater;
+    private final List<Order> mOrders;  // cached copy of orders
 
     // pass data into constructor
     OrderMainAdapter(Context context, List<Order> orders) {
@@ -95,8 +94,11 @@ public class OrderMainAdapter extends RecyclerView.Adapter<OrderMainAdapter.Orde
     // Stores and recycles views as they are scrolled off screen
     class OrdersViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         // Hold views
-        TextView name, status, date;
-        ImageView orderIcon, statusIcon;
+        final TextView name;
+        final TextView status;
+        final TextView date;
+        final ImageView orderIcon;
+        final ImageView statusIcon;
 
         OrdersViewHolder(View view) {
             super(view);
@@ -120,7 +122,7 @@ public class OrderMainAdapter extends RecyclerView.Adapter<OrderMainAdapter.Orde
         return mOrders.get(position);
     }
 
-    public interface ItemClickListener {
+    interface ItemClickListener {
         void onItemClick(View view, int position);
     }
 

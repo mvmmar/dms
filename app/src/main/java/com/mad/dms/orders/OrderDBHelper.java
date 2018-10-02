@@ -7,10 +7,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
-import java.sql.Date;
 import java.util.List;
 
-public class OrderDBHelper extends SQLiteOpenHelper {
+class OrderDBHelper extends SQLiteOpenHelper {
 
     // DB version
     private static final int DATABASE_VERSION = 6;

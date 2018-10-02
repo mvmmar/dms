@@ -9,11 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -27,12 +24,12 @@ import java.util.ArrayList;
 //public class OrderMainActivity extends AppCompatActivity implements OrderMainAdapter.ItemClickListener {
 public class OrderMainActivity extends AppCompatActivity {
 
-    public static final int VIEW_ORDER_ACTIVITY_REQUEST_CODE = 1;
+    private static final int VIEW_ORDER_ACTIVITY_REQUEST_CODE = 1;
     public static final String VIEW_ORDER_EXTRA = "com.mad.dms.orders.VIEW_ORDER_EXTRA";
     public static final String VIEW_ORDER_POS = "com.mad.dms.orders.VIEW_ORDER_POS";
-    ArrayList<Order> orders;
-    OrderMainAdapter adapter;
-    OrderDBHelper db;
+    private ArrayList<Order> orders;
+    private OrderMainAdapter adapter;
+    private OrderDBHelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

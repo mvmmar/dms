@@ -36,20 +36,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db= getWritableDatabase();
         long result=db.insert("Product",null,contentValues);
 
-        if(result==-1)
-            return false;
-        else
-            return true;
+        return result != -1;
     }
 
     public boolean deleteProduct(int id){
         SQLiteDatabase db= getReadableDatabase();
 
         int result=db.delete("Product","P_Id ="+id,null);
-        if(result==-1)
-            return false;
-        else
-            return true;
+        return result != -1;
     }
 
     public boolean updateProduct(Product product){
@@ -64,10 +58,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         int result=db.update("Product",contentValues,"P_Id ="+product.getProductId(),null);
 
-        if(result==-1)
-            return false;
-        else
-            return true;
+        return result != -1;
     }
 
     public Cursor displayProducts(){

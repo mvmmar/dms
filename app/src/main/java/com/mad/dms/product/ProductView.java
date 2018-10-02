@@ -43,7 +43,7 @@ public class ProductView extends AppCompatActivity {
         setContentView(R.layout.activity_product_view);
 
         databaseHelper = new DatabaseHelper(this);
-        editText  =(EditText)findViewById(R.id.editText);
+        editText = findViewById(R.id.editText);
         myDialog = new Dialog(this);
 
         productList = new ArrayList<>();
@@ -88,7 +88,7 @@ public class ProductView extends AppCompatActivity {
                     TextView txtClose,managePro,productName;
                     final Button btnSub,btnAdd,addStock;
                     final ProgressBar progressBar2;
-                    ImageView image = (ImageView)myDialog.findViewById(R.id.image);
+                    ImageView image = myDialog.findViewById(R.id.image);
                     String proCategory = product.getCategory();
 
                     switch (proCategory){
@@ -105,16 +105,16 @@ public class ProductView extends AppCompatActivity {
                             break;
                     }
 
-                    progressBar2 = (ProgressBar)myDialog.findViewById(R.id.progressBar2);
+                    progressBar2 = myDialog.findViewById(R.id.progressBar2);
                     progressBar2.setVisibility(View.INVISIBLE);
-                    txtClose =(TextView) myDialog.findViewById(R.id.txtClose);
-                    productName=(TextView) myDialog.findViewById(R.id.productName);
+                    txtClose = myDialog.findViewById(R.id.txtClose);
+                    productName = myDialog.findViewById(R.id.productName);
                     productName.setText(product.getProductName());
-                    btnSub=(Button)myDialog.findViewById(R.id.btnSub);
-                    btnAdd=(Button)myDialog.findViewById(R.id.btnAdd);
-                    addStock=(Button)myDialog.findViewById(R.id.addStock);
-                    qty=(EditText)myDialog.findViewById(R.id.qty);
-                    managePro=(TextView)myDialog.findViewById(R.id.managePro);
+                    btnSub = myDialog.findViewById(R.id.btnSub);
+                    btnAdd = myDialog.findViewById(R.id.btnAdd);
+                    addStock = myDialog.findViewById(R.id.addStock);
+                    qty = myDialog.findViewById(R.id.qty);
+                    managePro = myDialog.findViewById(R.id.managePro);
 
                     int amount;
 
@@ -295,7 +295,7 @@ public class ProductView extends AppCompatActivity {
                     TextView txtClose,managePro,productName;
                     final Button btnSub,btnAdd,addStock;
                     final ProgressBar progressBar2;
-                    ImageView image = (ImageView)myDialog.findViewById(R.id.image);
+                    ImageView image = myDialog.findViewById(R.id.image);
                     String proCategory = product.getCategory();
 
                     switch (proCategory){
@@ -312,16 +312,16 @@ public class ProductView extends AppCompatActivity {
                             break;
                     }
 
-                    progressBar2 = (ProgressBar)myDialog.findViewById(R.id.progressBar2);
+                    progressBar2 = myDialog.findViewById(R.id.progressBar2);
                     progressBar2.setVisibility(View.INVISIBLE);
-                    txtClose =(TextView) myDialog.findViewById(R.id.txtClose);
-                    productName=(TextView) myDialog.findViewById(R.id.productName);
+                    txtClose = myDialog.findViewById(R.id.txtClose);
+                    productName = myDialog.findViewById(R.id.productName);
                     productName.setText(product.getProductName());
-                    btnSub=(Button)myDialog.findViewById(R.id.btnSub);
-                    btnAdd=(Button)myDialog.findViewById(R.id.btnAdd);
-                    addStock=(Button)myDialog.findViewById(R.id.addStock);
-                    qty=(EditText)myDialog.findViewById(R.id.qty);
-                    managePro=(TextView)myDialog.findViewById(R.id.managePro);
+                    btnSub = myDialog.findViewById(R.id.btnSub);
+                    btnAdd = myDialog.findViewById(R.id.btnAdd);
+                    addStock = myDialog.findViewById(R.id.addStock);
+                    qty = myDialog.findViewById(R.id.qty);
+                    managePro = myDialog.findViewById(R.id.managePro);
 
                     int amount;
 

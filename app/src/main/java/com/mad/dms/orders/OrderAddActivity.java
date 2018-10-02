@@ -12,7 +12,7 @@ import com.mad.dms.R;
 
 public class OrderAddActivity extends AppCompatActivity {
 
-    public static final String EXTRA_REPLY = "com.mad.dms.orders.NEW_ORDER_REPLY";
+    private static final String EXTRA_REPLY = "com.mad.dms.orders.NEW_ORDER_REPLY";
     private EditText mOrderName;
     private OrderDBHelper db;
 

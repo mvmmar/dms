@@ -32,15 +32,15 @@ public class ProductUpdate extends AppCompatActivity {
         Intent intent = getIntent();
         product = intent.getParcelableExtra("Product");
 
-        pName=(EditText)findViewById(R.id.pName);
-        pDescription=(EditText)findViewById(R.id.pDescription);
-        pQuantity=(EditText)findViewById(R.id.pQuantity);
-        pPrice=(EditText)findViewById(R.id.pPrice);
-        progressBar=(ProgressBar)findViewById(R.id.progressBar);
+        pName = findViewById(R.id.pName);
+        pDescription = findViewById(R.id.pDescription);
+        pQuantity = findViewById(R.id.pQuantity);
+        pPrice = findViewById(R.id.pPrice);
+        progressBar = findViewById(R.id.progressBar);
         progressBar.setVisibility(View.INVISIBLE);
-        btnDelete=(Button)findViewById(R.id.btnDelete);
-        btnUpdate=(Button)findViewById(R.id.btnUpdate);
-        spinner=(Spinner)findViewById(R.id.spinner);
+        btnDelete = findViewById(R.id.btnDelete);
+        btnUpdate = findViewById(R.id.btnUpdate);
+        spinner = findViewById(R.id.spinner);
 
         pName.setText(product.getProductName());
         String category = product.getCategory();

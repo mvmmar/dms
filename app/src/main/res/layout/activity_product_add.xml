@@ -4,37 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".product.ProductAdd"
-    android:background="#FCFCFC">
-
-    <!--<android.support.design.widget.AppBarLayout-->
-        <!--android:id="@+id/appBar"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="250dp"-->
-        <!--android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">-->
-
-        <!--<android.support.design.widget.CollapsingToolbarLayout-->
-            <!--android:id="@+id/collapsingToolbar"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:background="@drawable/background"-->
-            <!--app:contentScrim="?attr/colorPrimary"-->
-            <!--app:expandedTitleMarginEnd="64dp"-->
-            <!--app:expandedTitleMarginStart="48dp"-->
-            <!--app:layout_scrollFlags="exitUntilCollapsed|scroll"-->
-            <!--app:title="Distributor Management">-->
-
-            <!--<android.support.v7.widget.Toolbar-->
-                <!--android:id="@+id/toolbarid"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="?attr/actionBarSize"-->
-                <!--app:layout_collapseMode="pin"-->
-                <!--app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />-->
-
-        <!--</android.support.design.widget.CollapsingToolbarLayout>-->
-
-
-    <!--</android.support.design.widget.AppBarLayout>-->
+    tools:context=".product.ProductAdd">
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -67,7 +37,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="24dp"
-                        android:text="New Product Insert"
+                        android:text="@string/new_product_insert"
                         android:textSize="24sp"
                         android:textStyle="bold" />
 
@@ -77,7 +47,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="24dp"
-                        android:hint="Product Name" />
+                        android:hint="@string/product_name"
+                        android:inputType="text" />
 
                     <Spinner
                         android:id="@+id/spinner"
@@ -92,7 +63,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="24dp"
-                        android:hint="Description" />
+                        android:hint="@string/description"
+                        android:inputType="text" />
 
                     <EditText
                         android:id="@+id/pQuantity"
@@ -101,7 +73,7 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="24dp"
                         android:background="@drawable/edittextstyle"
-                        android:hint="Initial Quantity"
+                        android:hint="@string/initial_quantity"
                         android:inputType="number" />
 
                     <EditText
@@ -111,7 +83,7 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="24dp"
                         android:background="@drawable/edittextstyle"
-                        android:hint="Selling Price"
+                        android:hint="@string/selling_price"
                         android:inputType="numberDecimal" />
 
                     <Button
@@ -122,7 +94,7 @@
                         android:layout_marginBottom="24dp"
                         android:layout_marginTop="24dp"
                         android:background="@drawable/buttonstyle"
-                        android:text="ADD PRODUCT"
+                        android:text="@string/add_product"
                         android:textColor="@color/white" />
 
                 </LinearLayout>

@@ -19,32 +19,32 @@ public class ProductAdapter extends ArrayAdapter<Product> {
     private int ViewResourceId;
 
 
-    public ProductAdapter(Context context,int textViewResourceId,ArrayList<Product> products){
+    public ProductAdapter(Context context, int textViewResourceId, ArrayList<Product> products) {
 
-        super(context,textViewResourceId,products);
-        this.products=products;
-        layoutInflater=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        ViewResourceId=textViewResourceId;
+        super(context, textViewResourceId, products);
+        this.products = products;
+        layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        ViewResourceId = textViewResourceId;
     }
 
-    public View getView(int position, View convertView, ViewGroup parent){
-        convertView=layoutInflater.inflate(ViewResourceId,null);
+    public View getView(int position, View convertView, ViewGroup parent) {
+        convertView = layoutInflater.inflate(ViewResourceId, null);
 
         Product product = products.get(position);
 
         String proName = product.ProductName;
-        String proCategory= product.Category;
-        String proDescription=product.Description;
+        String proCategory = product.Category;
+        String proDescription = product.Description;
         double proPrice = product.Price;
         int proQty = product.Quantity;
 
-        TextView productName = (TextView) convertView.findViewById(R.id.proName);
-        TextView productDes = (TextView) convertView.findViewById(R.id.proDescription);
-        TextView productPrice = (TextView) convertView.findViewById(R.id.proPrice);
-        TextView productQuantity = (TextView) convertView.findViewById(R.id.proQuantity);
-        ImageView productIcon=(ImageView)convertView.findViewById(R.id.productIcon);
+        TextView productName = convertView.findViewById(R.id.proName);
+        TextView productDes = convertView.findViewById(R.id.proDescription);
+        TextView productPrice = convertView.findViewById(R.id.proPrice);
+        TextView productQuantity = convertView.findViewById(R.id.proQuantity);
+        ImageView productIcon = convertView.findViewById(R.id.productIcon);
 
-        switch (proCategory){
+        switch (proCategory) {
             case "Food":
                 productIcon.setImageResource(R.drawable.breakfast);
                 break;
