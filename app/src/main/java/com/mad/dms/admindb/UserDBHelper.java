@@ -1,4 +1,4 @@
-package com.mad.dms.DataBase;
+package com.mad.dms.admindb;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -6,8 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.mad.dms.Classes.AdminData;
-import com.mad.dms.Classes.User;
+import com.mad.dms.adminclasses.AdminData;
+import com.mad.dms.adminclasses.User;
 
 import java.util.ArrayList;
 

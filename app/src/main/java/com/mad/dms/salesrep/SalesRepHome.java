@@ -1,4 +1,4 @@
-package com.mad.dms.SalesRep;
+package com.mad.dms.salesrep;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -10,11 +10,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import com.mad.dms.Admin.AddSalesRep;
-import com.mad.dms.Admin.AdminHome;
-import com.mad.dms.Admin.ViewSalesRep;
 import com.mad.dms.R;
-import com.mad.dms.SignIn.Login;
+import com.mad.dms.signin.Login;
+import com.mad.dms.orders.OrderMainActivity;
+import com.mad.dms.product.ProductView;
 
 public class SalesRepHome extends AppCompatActivity implements View.OnClickListener{
     private LinearLayout salesRep;
@@ -89,22 +88,22 @@ public class SalesRepHome extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-//        switch (v.getId()) {
-//            case R.id.ADProduct:
-//                Intent i2 = new Intent(SalesRepHome.this, ViewSalesRep.class);
-//                startActivity(i2);
-//                this.overridePendingTransition(R.anim.left_enter, R.anim.right_out);
-//                break;
+        switch (v.getId()) {
+            case R.id.ADProduct:
+                Intent i2 = new Intent(SalesRepHome.this, ProductView.class);
+                startActivity(i2);
+                this.overridePendingTransition(R.anim.right_enter, R.anim.left_out);
+                break;
 //            case R.id.ADShop:
 //                Intent i3 = new Intent(SalesRepHome.this, ViewSalesRep.class);
 //                startActivity(i3);
 //                this.overridePendingTransition(R.anim.right_enter, R.anim.left_out);
 //                break;
-//            case R.id.ADOrder:
-//                Intent i4 = new Intent(SalesRepHome.this, ViewSalesRep.class);
-//                startActivity(i4);
-//                this.overridePendingTransition(R.anim.left_enter, R.anim.right_out);
-//                break;
-//        }
+            case R.id.ADOrder:
+                Intent i4 = new Intent(SalesRepHome.this, OrderMainActivity.class);
+                startActivity(i4);
+                this.overridePendingTransition(R.anim.right_enter, R.anim.left_out);
+                break;
+        }
     }
 }

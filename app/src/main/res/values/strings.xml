@@ -28,9 +28,11 @@
     <string name="back">BACK</string>
 
     <!--Order Strings-->
+    <string name="order_main_name">Orders</string>
     <string name="order_date_placeholder">DD/MM/YY</string>
     <string name="order_name_placeholder">Order name</string>
     <string name="order_status_placeholder">Order Status</string>
+    <string name="order_add_label">Add new order</string>
 
     <!--Add order-->
     <string name="order_add_name_label">Name</string>
@@ -48,6 +50,11 @@
     <string name="order_total_label">Total</string>
     <string name="order_deny_button">Deny</string>
     <string name="order_accept_button">Accept</string>
+    <string name="order_update_button">Update</string>
+    <string name="order_details">Order Details</string>
+    <string name="delivery_date">Delivery Date</string>
+    <string name="date_amp_time"><![CDATA[Date & Time]]></string>
+    <string name="shop">Shop</string>
 
     <!-- Products -->
     <array name="category">

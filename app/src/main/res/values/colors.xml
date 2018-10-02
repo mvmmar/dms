@@ -5,7 +5,7 @@
     <!-- <color name="colorPrimaryDark">#342156</color> -->
     <color name="colorPrimaryDark">#352a49</color>
     <color name="colorAccent">#ff2b47</color>
-    <color name="backgroundColor">#FCFCFC</color>
+    <color name="backgroundColor">#fcfcfc</color>
     <color name="dashboardBackground">#F1F5F8</color>
     <color name="azur">#F1F5F8</color>
     <color name="lightGray">#EDEDED</color>

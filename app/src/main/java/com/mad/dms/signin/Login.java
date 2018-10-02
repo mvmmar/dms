@@ -1,4 +1,4 @@
-package com.mad.dms.SignIn;
+package com.mad.dms.signin;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -16,11 +16,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.mad.dms.Admin.AdminHome;
-import com.mad.dms.Classes.User;
-import com.mad.dms.DataBase.UserDBHelper;
+import com.mad.dms.admin.AdminHome;
+import com.mad.dms.adminclasses.User;
+import com.mad.dms.admindb.UserDBHelper;
 import com.mad.dms.R;
-import com.mad.dms.SalesRep.SalesRepHome;
+import com.mad.dms.salesrep.SalesRepHome;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

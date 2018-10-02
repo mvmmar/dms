@@ -7,15 +7,16 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
+import java.sql.Date;
 import java.util.List;
 
 public class OrderDBHelper extends SQLiteOpenHelper {
 
     // DB version
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 6;
 
     // DB name
-    private static final String DATABASE_NAME = "orders";
+    private static final String DATABASE_NAME = "dms.orders.db";
 
     OrderDBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -70,20 +71,46 @@ public class OrderDBHelper extends SQLiteOpenHelper {
         return updateStatus(id, Order.ORDER_STATUS_DENIED);
     }
 
+    public int updateOrder(Order order) {
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(Order.COLUMN_STATUS, order.getStatus());
+        values.put(Order.COLUMN_ACCEPTED, order.getSQLAcceptedDate());
+        values.put(Order.COLUMN_SHOP, order.getShop_id());
+
+        String selection = Order.COLUMN_ID + " = ?";
+        String[] selectionArgs = { String.valueOf(order.getId()) };
+
+        return db.update(Order.TABLE_NAME, values, selection, selectionArgs);
+    }
+
+
+    private Order getOrderFromCursor(Cursor cursor, Order order) {
+        order.setId(cursor.getInt(cursor.getColumnIndexOrThrow(Order.COLUMN_ID)));
+        order.setName(cursor.getString(cursor.getColumnIndexOrThrow(Order.COLUMN_NAME)));
+        order.setStatus(cursor.getInt(cursor.getColumnIndexOrThrow(Order.COLUMN_STATUS)));
+        String date = cursor.getString(cursor.getColumnIndexOrThrow(Order.COLUMN_DATE));
+        String delivery = cursor.getString(cursor.getColumnIndexOrThrow(Order.COLUMN_ACCEPTED));
+        System.out.println(date);
+        System.out.println(delivery);
+        order.setDate(date);
+        order.setSQLAcceptedDate(delivery);
+        return order;
+    }
+
+    private Order getOrderFromCursor(Cursor cursor) {
+        Order order = new Order();
+        return getOrderFromCursor(cursor, order);
+    }
+
     public Order getOrder(long id) {
         SQLiteDatabase db = this.getReadableDatabase();
-        String[] projection = {
-                Order.COLUMN_ID,
-                Order.COLUMN_NAME,
-                Order.COLUMN_STATUS,
-                Order.COLUMN_DATE,
-        };
         String selection = Order.COLUMN_ID + " = ?";
         String[] selectionArgs = { String.valueOf(id) };
 
         Cursor cursor = db.query(
                 Order.TABLE_NAME,
-                projection,
+                null,
                 selection,
                 selectionArgs,
                 null,
@@ -95,10 +122,7 @@ public class OrderDBHelper extends SQLiteOpenHelper {
 
         if (cursor != null) {
             cursor.moveToFirst();
-            order.setId(cursor.getInt(cursor.getColumnIndexOrThrow(Order.COLUMN_ID)));
-            order.setName(cursor.getString(cursor.getColumnIndexOrThrow(Order.COLUMN_NAME)));
-            order.setStatus(cursor.getInt(cursor.getColumnIndexOrThrow(Order.COLUMN_STATUS)));
-            order.setDate(cursor.getString(cursor.getColumnIndexOrThrow(Order.COLUMN_DATE)));
+            order = getOrderFromCursor(cursor, order);
             cursor.close();
         }
 
@@ -108,17 +132,11 @@ public class OrderDBHelper extends SQLiteOpenHelper {
     public List<Order> getAllOrders() {
         List<Order> orders = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
-        String[] columns = {
-                Order.COLUMN_ID,
-                Order.COLUMN_NAME,
-                Order.COLUMN_STATUS,
-                Order.COLUMN_DATE,
-        };
         String sortOrder = Order.COLUMN_DATE + " DESC";
 
         Cursor cursor = db.query(
                 Order.TABLE_NAME,
-                columns,
+                null,
                 null,
                 null,
                 null,
@@ -127,11 +145,7 @@ public class OrderDBHelper extends SQLiteOpenHelper {
         );
 
         while(cursor.moveToNext()) {
-            Order order = new Order();
-            order.setId(cursor.getInt(cursor.getColumnIndexOrThrow(Order.COLUMN_ID)));
-            order.setName(cursor.getString(cursor.getColumnIndexOrThrow(Order.COLUMN_NAME)));
-            order.setStatus(cursor.getInt(cursor.getColumnIndexOrThrow(Order.COLUMN_STATUS)));
-            order.setDate(cursor.getString(cursor.getColumnIndexOrThrow(Order.COLUMN_DATE)));
+            Order order = getOrderFromCursor(cursor);
             orders.add(order);
         }
 

@@ -1,4 +1,4 @@
-package com.mad.dms.SignIn;
+package com.mad.dms.signin;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -14,8 +14,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.mad.dms.Classes.AdminData;
-import com.mad.dms.DataBase.UserDBHelper;
+import com.mad.dms.adminclasses.AdminData;
+import com.mad.dms.admindb.UserDBHelper;
 import com.mad.dms.R;
 
 import java.io.UnsupportedEncodingException;

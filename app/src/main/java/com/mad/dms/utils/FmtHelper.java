@@ -10,6 +10,7 @@ public class FmtHelper {
     private static SimpleDateFormat sqlDate;
     private static SimpleDateFormat orderDate;
     private static SimpleDateFormat shortDate;
+    public final static String datePlaceHolder = "--/--/--";
 
     private static SimpleDateFormat getShortDateFmt() {
         if (shortDate == null) {
@@ -21,7 +22,8 @@ public class FmtHelper {
 
     private static SimpleDateFormat getOrderDateFmt() {
         if (orderDate == null) {
-            orderDate = new SimpleDateFormat("HH:mm aa, MMM dd, yyyy", Locale.getDefault());
+//            orderDate = new SimpleDateFormat("HH:mm aa, MMM dd, yyyy", Locale.getDefault());
+            orderDate = new SimpleDateFormat("MMM dd, yyyy", Locale.getDefault());
             orderDate.setTimeZone(TimeZone.getDefault());
         }
         return orderDate;
@@ -35,20 +37,44 @@ public class FmtHelper {
         return sqlDate;
     }
 
-    public static Date parseSQLDate(String date) {
+    public static Date parseShortDate(String date) {
         try {
-            return getSQLDateFmt().parse(date);
+            return getShortDateFmt().parse(date);
         } catch (ParseException e) {
             e.printStackTrace();
             return new Date();
         }
     }
 
+    public static Date parseSQLDate(String date) {
+        try {
+            if (date != null) {
+                return getSQLDateFmt().parse(date);
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static String toSQLDate(Date date) {
+        if (date != null) {
+            return getSQLDateFmt().format(date);
+        }
+        return "NULL";
+    }
+
     public static String formatOrderDate(Date date) {
-        return getOrderDateFmt().format(date);
+        if (date != null) {
+            return getOrderDateFmt().format(date);
+        }
+        return datePlaceHolder;
     }
 
     public static String formatShortDate(Date date) {
-        return getShortDateFmt().format(date);
+        if (date != null) {
+            return getShortDateFmt().format(date);
+        }
+        return datePlaceHolder;
     }
 }

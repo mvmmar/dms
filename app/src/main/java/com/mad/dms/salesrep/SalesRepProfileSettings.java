@@ -1,4 +1,4 @@
-package com.mad.dms.SalesRep;
+package com.mad.dms.salesrep;
 
 import android.database.Cursor;
 import android.os.Bundle;
@@ -8,10 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.mad.dms.Admin.AdminProfileSettings;
-import com.mad.dms.DataBase.UserDBHelper;
+import com.mad.dms.admindb.UserDBHelper;
 import com.mad.dms.R;
-import com.mad.dms.SignIn.Login;
+import com.mad.dms.signin.Login;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

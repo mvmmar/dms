@@ -38,15 +38,11 @@ public class OrderMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_main);
-//        Toolbar toolbar = findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(OrderMainActivity.this, OrderAddActivity.class);
-//                startActivityForResult(intent, NEW_ORDER_ACTIVITY_REQUEST_CODE);
                 showOrderDialog();
             }
         });
@@ -54,9 +50,6 @@ public class OrderMainActivity extends AppCompatActivity {
         db = new OrderDBHelper(this);
         orders = new ArrayList<>();
         orders.addAll(db.getAllOrders());
-//        orders.add(new Order("Order 1", Order.ORDER_STATUS_CONFIRMED, new Date()));
-//        orders.add(new Order("Order 2", Order.ORDER_STATUS_PENDING));
-//        orders.add(new Order("Order 3", Order.ORDER_STATUS_DENIED));
 
         RecyclerView recyclerView = findViewById(R.id.rvOrderMain);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -74,7 +67,6 @@ public class OrderMainActivity extends AppCompatActivity {
         }));
 
         adapter = new OrderMainAdapter(this, orders);
-//        adapter.setClickListener(this);
         recyclerView.setAdapter(adapter);
     }
 
@@ -128,13 +120,6 @@ public class OrderMainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == VIEW_ORDER_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-//            int index = 0;
-//            int orderId = data.getIntExtra(OrderAddActivity.EXTRA_REPLY, -1);
-//            if (orderId > 0) {
-//                orders.add(index, db.getOrder(orderId));
-//                adapter.notifyItemInserted(index);
-//            }
-//            int orderId = data.getIntExtra(OrderViewActivity.VIEW_ORDER_REPLY_ID, 0);
             int orderPos = data.getIntExtra(OrderViewActivity.VIEW_ORDER_REPLY_POS, 0);
 
             Order o = db.getOrder(orders.get(orderPos).getId());
@@ -145,16 +130,6 @@ public class OrderMainActivity extends AppCompatActivity {
 
         }
     }
-
-//    @Override
-//    public void onItemClick(View view, int position) {
-////        String toastText = "You clicked" + adapter.getItem(position).getName() + " on row number " + position;
-////        Toast.makeText(this, toastText, Toast.LENGTH_SHORT).show();
-//        Intent intent = new Intent(OrderMainActivity.this, OrderViewActivity.class);
-//        intent.putExtra(VIEW_ORDER_EXTRA, adapter.getItem(position).getId());
-//        intent.putExtra(VIEW_ORDER_POS, position);
-//        startActivityForResult(intent, VIEW_ORDER_ACTIVITY_REQUEST_CODE);
-//    }
 
     private void clickItem(final int position) {
         Intent intent = new Intent(OrderMainActivity.this, OrderViewActivity.class);
@@ -191,20 +166,4 @@ public class OrderMainActivity extends AppCompatActivity {
 //        getMenuInflater().inflate(R.menu.menu_order_main, menu);
 //        return true;
 //    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
 }

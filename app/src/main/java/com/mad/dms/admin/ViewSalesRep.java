@@ -1,6 +1,5 @@
-package com.mad.dms.Admin;
+package com.mad.dms.admin;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -10,9 +9,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.mad.dms.DataBase.UserDBHelper;
+import com.mad.dms.admindb.UserDBHelper;
 import com.mad.dms.R;
-import com.mad.dms.Classes.User;
+import com.mad.dms.adminclasses.User;
 
 import java.util.ArrayList;
 

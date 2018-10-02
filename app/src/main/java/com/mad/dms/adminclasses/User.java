@@ -1,4 +1,4 @@
-package com.mad.dms.Classes;
+package com.mad.dms.adminclasses;
 
 public class User {
     private String id;
