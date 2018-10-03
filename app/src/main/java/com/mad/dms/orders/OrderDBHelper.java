@@ -6,36 +6,38 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.mad.dms.database.DMSDatabase;
+
 import java.util.ArrayList;
 import java.util.List;
 
-class OrderDBHelper extends SQLiteOpenHelper {
+class OrderDBHelper extends DMSDatabase {
 
-    // DB version
-    private static final int DATABASE_VERSION = 6;
-
-    // DB name
-    private static final String DATABASE_NAME = "dms.orders.db";
+//    // DB version
+//    private static final int DATABASE_VERSION = 6;
+//
+//    // DB name
+//    private static final String DATABASE_NAME = "dms.orders.db";
 
     OrderDBHelper(Context context) {
-        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        super(context);
     }
 
     // Creating table
-    @Override
-    public void onCreate(SQLiteDatabase db) {
-        db.execSQL(Order.CREATE_TABLE);
-    }
+//    @Override
+//    public void onCreate(SQLiteDatabase db) {
+//        db.execSQL(Order.CREATE_TABLE);
+//    }
 
     // Upgrading DB
-    @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        // Drop older table
-        db.execSQL("DROP TABLE IF EXISTS " + Order.TABLE_NAME);
-
-        // Recreate tables
-        onCreate(db);
-    }
+//    @Override
+//    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+//        // Drop older table
+//        db.execSQL("DROP TABLE IF EXISTS " + Order.TABLE_NAME);
+//
+//        // Recreate tables
+//        onCreate(db);
+//    }
 
     // Insert Note
     public int insertOrder(String name) {

@@ -6,24 +6,26 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class DatabaseHelper extends SQLiteOpenHelper {
+import com.mad.dms.database.DMSDatabase;
+
+public class DatabaseHelper extends DMSDatabase {
 
     public DatabaseHelper(Context context) {
-        super(context, "DMS.db", null, 1);
+        super(context);
     }
 
-    @Override
-    public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String query="CREATE TABLE Product(P_Id INTEGER PRIMARY KEY AUTOINCREMENT,P_Name TEXT,P_Category TEXT,P_Description TEXT,P_Price REAL,P_Qty INTEGER);";
-        sqLiteDatabase.execSQL(query);
-    }
-
-    @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        String query="DROP TABLE IF EXISTS Product";
-        onCreate(sqLiteDatabase);
-
-    }
+//    @Override
+//    public void onCreate(SQLiteDatabase sqLiteDatabase) {
+//        String query="CREATE TABLE Product(P_Id INTEGER PRIMARY KEY AUTOINCREMENT,P_Name TEXT,P_Category TEXT,P_Description TEXT,P_Price REAL,P_Qty INTEGER);";
+//        sqLiteDatabase.execSQL(query);
+//    }
+//
+//    @Override
+//    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+//        String query="DROP TABLE IF EXISTS Product";
+//        onCreate(sqLiteDatabase);
+//
+//    }
 
     public boolean insertProduct(Product product){
         ContentValues contentValues = new ContentValues();
