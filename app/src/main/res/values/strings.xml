@@ -5,10 +5,10 @@
     <!-- Main view -->
     <string name="main_view_orders_title">Orders</string>
     <string name="main_view_orders_desc">View your orders</string>
-    <string name="main_view_products_desc">View Products and related details</string>
+    <string name="main_view_products_desc">View Products</string>
     <string name="main_view_products_title">Products</string>
     <string name="main_activity_title_salesrep">Sales Rep</string>
-    <string name="main_view_desc_salesrep">Manage sales reps</string>
+    <string name="main_view_desc_salesrep">View sales representatives</string>
     <string name="main_view_title_shops">Shops</string>
     <string name="main_view_desc_shops">View shops</string>
 
