@@ -65,7 +65,7 @@ public class ProductUpdate extends AppCompatActivity {
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(btnUpdate.getText().toString().equals("EDIT")){
+                if (btnUpdate.getText().toString().toUpperCase().equals("EDIT")) {
                     btnUpdate.setText("UPDATE");
                     pName.setEnabled(true);
                     spinner.setEnabled(true);
@@ -114,8 +114,6 @@ public class ProductUpdate extends AppCompatActivity {
                         }
                         else
                             Toast.makeText(ProductUpdate.this,"Product Name cannot be Empty!!!",Toast.LENGTH_LONG).show();
-
-
                     }
                     catch (Exception e){
                         Toast.makeText(ProductUpdate.this,"Invalid Numeric Input!!!",Toast.LENGTH_LONG).show();
