@@ -67,8 +67,8 @@
         <activity
             android:name=".orders.OrderMainActivity"
             android:label="@string/order_main_name"
-            android:windowSoftInputMode="adjustPan|adjustResize"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan|adjustResize" />
         <activity
             android:name=".orders.OrderAddActivity"
             android:label="@string/order_add_label" />
@@ -77,6 +77,19 @@
             android:label="@string/order_name_placeholder"
             android:parentActivityName=".orders.OrderMainActivity"
             android:windowSoftInputMode="adjustPan|adjustResize" />
+
+        <!-- Shops -->
+        <activity
+            android:name=".shops.ShopViewActivity"
+            android:label="@string/shops" />
+        <activity
+            android:name=".shops.ShopInsertActivity"
+            android:label="@string/insert_shop"
+            android:parentActivityName=".shops.ShopViewActivity" />
+        <activity
+            android:name=".shops.ShopEditActivity"
+            android:label="@string/edit_shop"
+            android:parentActivityName=".shops.ShopViewActivity" />
     </application>
 
 </manifest>

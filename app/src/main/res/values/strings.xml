@@ -97,4 +97,19 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="set_date">Set Date</string>
     <string name="no_orders">No Orders!</string>
+    <string name="shop_address">Shop Address</string>
+    <string name="shop_contact">Shop Contact</string>
+    <string name="customer_name">Customer Name</string>
+    <string name="shop_name">Shop Name</string>
+    <string name="edit_shop_details">Edit-Shop Details</string>
+    <string name="shop_registration">Shop Registration</string>
+    <string name="enter_shop_name">Enter Shop Name</string>
+    <string name="enter_customer_name">Enter Customer Name</string>
+    <string name="enter_address">Enter Address</string>
+    <string name="enter_contact_number">Enter Contact Number</string>
+    <string name="insert">Insert</string>
+    <string name="add">Add</string>
+    <string name="shops">Shops</string>
+    <string name="insert_shop">Insert Shop</string>
+    <string name="edit_shop">Edit Shop</string>
 </resources>

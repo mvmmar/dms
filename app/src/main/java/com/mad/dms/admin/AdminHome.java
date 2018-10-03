@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.mad.dms.shops.ShopViewActivity;
 import com.mad.dms.signin.Login;
 import com.mad.dms.R;
 import com.mad.dms.orders.OrderMainActivity;
@@ -101,11 +102,11 @@ public class AdminHome extends AppCompatActivity implements View.OnClickListener
                 startActivity(i2);
                 this.overridePendingTransition(R.anim.right_enter, R.anim.left_out);
                 break;
-//            case R.id.ADShop:
-//                Intent i3 = new Intent(AdminHome.this, SalesRepProfileSettings.class);
-//                startActivity(i3);
-//                this.overridePendingTransition(R.anim.right_enter, R.anim.left_out);
-//                break;
+            case R.id.ADShop:
+                Intent i3 = new Intent(AdminHome.this, ShopViewActivity.class);
+                startActivity(i3);
+                this.overridePendingTransition(R.anim.right_enter, R.anim.left_out);
+                break;
             case R.id.ADOrder:
                 Intent i4 = new Intent(AdminHome.this, OrderMainActivity.class);
                 startActivity(i4);

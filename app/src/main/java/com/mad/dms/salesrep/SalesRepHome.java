@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.mad.dms.R;
+import com.mad.dms.shops.ShopViewActivity;
 import com.mad.dms.signin.Login;
 import com.mad.dms.orders.OrderMainActivity;
 import com.mad.dms.product.ProductView;
@@ -94,11 +95,11 @@ public class SalesRepHome extends AppCompatActivity implements View.OnClickListe
                 startActivity(i2);
                 this.overridePendingTransition(R.anim.right_enter, R.anim.left_out);
                 break;
-//            case R.id.ADShop:
-//                Intent i3 = new Intent(SalesRepHome.this, ViewSalesRep.class);
-//                startActivity(i3);
-//                this.overridePendingTransition(R.anim.right_enter, R.anim.left_out);
-//                break;
+            case R.id.ADShop:
+                Intent i3 = new Intent(SalesRepHome.this, ShopViewActivity.class);
+                startActivity(i3);
+                this.overridePendingTransition(R.anim.right_enter, R.anim.left_out);
+                break;
             case R.id.ADOrder:
                 Intent i4 = new Intent(SalesRepHome.this, OrderMainActivity.class);
                 startActivity(i4);
