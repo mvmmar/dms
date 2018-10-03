@@ -100,7 +100,7 @@ public class SalesRepProfileSettings extends AppCompatActivity implements View.O
             Toast msg = Toast.makeText(SalesRepProfileSettings.this, "Empty Input Field", Toast.LENGTH_SHORT);
             msg.show();
         } else if (!m1.find()) {
-            Toast msg = Toast.makeText(SalesRepProfileSettings.this, "Fullname Field is Invalid.", Toast.LENGTH_SHORT);
+            Toast msg = Toast.makeText(SalesRepProfileSettings.this, "Name Field is Invalid.", Toast.LENGTH_SHORT);
             msg.show();
         } else if (!m2.find()) {
             Toast msg = Toast.makeText(SalesRepProfileSettings.this, "Email Field is Invalid.", Toast.LENGTH_SHORT);
