@@ -96,7 +96,7 @@ public class ProductView extends AppCompatActivity {
                             image.setImageResource(R.drawable.breakfast);
                             break;
 
-                        case "Cosmatic":
+                        case "Cosmetics":
                             image.setImageResource(R.drawable.cosmetics);
                             break;
 
@@ -303,7 +303,7 @@ public class ProductView extends AppCompatActivity {
                             image.setImageResource(R.drawable.breakfast);
                             break;
 
-                        case "Cosmatic":
+                        case "Cosmetics":
                             image.setImageResource(R.drawable.cosmetics);
                             break;
 

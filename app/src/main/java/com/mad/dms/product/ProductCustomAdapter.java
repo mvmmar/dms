@@ -48,7 +48,7 @@ public class ProductCustomAdapter extends ArrayAdapter {
                 productIcon.setImageResource(R.drawable.breakfast);
                 break;
 
-            case "Cosmatic":
+            case "Cosmetics":
                 productIcon.setImageResource(R.drawable.cosmetics);
                 break;
 
