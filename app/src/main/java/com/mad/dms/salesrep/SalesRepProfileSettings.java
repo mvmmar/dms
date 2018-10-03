@@ -59,7 +59,6 @@ public class SalesRepProfileSettings extends AppCompatActivity implements View.O
         switch (v.getId()) {
             case R.id.RPS_Edit:
                 pro_name.setEnabled(true);
-                pro_email.setEnabled(true);
                 pro_phone.setEnabled(true);
                 pro_password.setEnabled(true);
                 Update.setVisibility(View.VISIBLE);
@@ -118,7 +117,7 @@ public class SalesRepProfileSettings extends AppCompatActivity implements View.O
         } else {
             boolean result = udb.UpdateSalesRep(Login.sessionEmail,Name, Email,PhoneNo,Password);
 
-            if (result == true) {
+            if (result) {
                 pro_name.setEnabled(false);
                 pro_email.setEnabled(false);
                 pro_phone.setEnabled(false);

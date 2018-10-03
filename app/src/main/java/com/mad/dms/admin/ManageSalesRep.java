@@ -118,6 +118,8 @@ public class ManageSalesRep extends AppCompatActivity implements View.OnClickLis
         PhoneNo = manage_phone.getText().toString();
         Password = manage_password.getText().toString();
 
+        boolean isEmailAvailable = udb.checkUserEmail(Email);
+
         //name pattern
         String r1 = "^[a-zA-Z]{2,30}$";
         Pattern p1 = Pattern.compile(r1);
@@ -157,9 +159,12 @@ public class ManageSalesRep extends AppCompatActivity implements View.OnClickLis
         } else if (Password.length() < 8) {
             Toast msg = Toast.makeText(ManageSalesRep.this, "Minimum Password Length is 8", Toast.LENGTH_SHORT);
             msg.show();
+        } else if (isEmailAvailable == false) {
+            Toast msg = Toast.makeText(ManageSalesRep.this, "Email is Used Already !!!", Toast.LENGTH_SHORT);
+            msg.show();
         } else {
             String ID = ViewSalesRep.userList.get(position).getId();
-            boolean result = udb.UpdateInfo(ID,Name,Email,PhoneNo,Password);
+            boolean result = udb.UpdateInfo(ID, Name, Email, PhoneNo, Password);
 
             if (result = true) {
                 Toast msg = Toast.makeText(ManageSalesRep.this, "SuccessFully Updated", Toast.LENGTH_SHORT);
