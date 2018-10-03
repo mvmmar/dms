@@ -112,4 +112,9 @@
     <string name="shops">Shops</string>
     <string name="insert_shop">Insert Shop</string>
     <string name="edit_shop">Edit Shop</string>
+    <string name="select_products">Select Products</string>
+    <string name="add_products">Add Products</string>
+    <string name="category">Category</string>
+    <string name="productss">Products</string>
+    <string name="delivery_charge_10">Delivery Charge (10%)</string>
 </resources>
