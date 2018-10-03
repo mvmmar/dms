@@ -84,8 +84,8 @@ class OrderDBHelper extends DMSDatabase {
     public int updateOrder(Order order) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(Order.COLUMN_STATUS, order.getName());
         values.put(Order.COLUMN_STATUS, order.getStatus());
+        values.put(Order.COLUMN_NAME, order.getName());
         values.put(Order.COLUMN_ACCEPTED, order.getSQLAcceptedDate());
         values.put(Order.COLUMN_SHOP, order.getShop_id());
 

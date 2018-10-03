@@ -73,7 +73,6 @@ public class OrderViewActivity extends AppCompatActivity {
         orderId = intent.getIntExtra(OrderMainActivity.VIEW_ORDER_EXTRA, -1);
         orderPos = intent.getIntExtra(OrderMainActivity.VIEW_ORDER_POS, -1);
         order = db.getOrder(orderId);
-        products = db.getOrderProducts(order.getId());
 
         replyIntent = new Intent();
         if (order == null) {
@@ -96,11 +95,12 @@ public class OrderViewActivity extends AppCompatActivity {
 
         setRepDetails();
         setOrderDetails();
-        setAdminButtons();
         setProductDetails();
+        setAdminButtons();
     }
 
     private void setProductDetails() {
+        products = db.getOrderProducts(order.getId());
         Button addProducts = findViewById(R.id.order_view_add_products);
         if (products.isEmpty()) {
             addProducts.setOnClickListener(new View.OnClickListener() {
@@ -108,7 +108,7 @@ public class OrderViewActivity extends AppCompatActivity {
                 public void onClick(View view) {
                     Intent i = new Intent(OrderViewActivity.this, OrderAddProducts.class);
                     i.putExtra(VIEW_ORDER_ADD_PRODUCTS, order.getId());
-                    startActivity(i);
+                    startActivityForResult(i, VIEW_ORDER_ADD_PRODUCTS_CODE);
                 }
             });
         } else {
@@ -358,5 +358,13 @@ public class OrderViewActivity extends AppCompatActivity {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == VIEW_ORDER_ADD_PRODUCTS_CODE && resultCode == RESULT_OK) {
+            setProductDetails();
+        }
     }
 }

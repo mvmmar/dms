@@ -146,7 +146,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                 Intent i = new Intent(Login.this, AdminHome.class);
                 startActivity(i);
 
-                Toast msg = Toast.makeText(Login.this, "Login Successful !!!." + userId, Toast.LENGTH_SHORT);
+                Toast msg = Toast.makeText(Login.this, "Login Successful !!!", Toast.LENGTH_SHORT);
                 msg.show();
 
                 finish();

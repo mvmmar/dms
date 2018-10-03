@@ -26,6 +26,7 @@ public class OrderAddProducts extends AppCompatActivity {
     ArrayList<OrderProducts> products;
     OrderDBHelper db;
     OrderProductAdapter adapter = null;
+    private Intent replyIntent;
     private int orderId;
 
     @Override
@@ -53,6 +54,7 @@ public class OrderAddProducts extends AppCompatActivity {
 //            }
 //        });
 
+        replyIntent = new Intent();
         Button myButton = findViewById(R.id.order_select_button);
         myButton.setOnClickListener(new View.OnClickListener() {
 
@@ -72,7 +74,8 @@ public class OrderAddProducts extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "No products selected!", Toast.LENGTH_SHORT).show();
                 } else {
                     if (db.insertProducts(orderId, selectedProducts) > -1) {
-                        Toast.makeText(getApplicationContext(), "INSERTED", Toast.LENGTH_SHORT).show();
+                        setResult(RESULT_OK, replyIntent);
+                        finish();
                     }
                 }
             }
