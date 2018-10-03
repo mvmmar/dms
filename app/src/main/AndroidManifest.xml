@@ -90,6 +90,7 @@
             android:name=".shops.ShopEditActivity"
             android:label="@string/edit_shop"
             android:parentActivityName=".shops.ShopViewActivity" />
+        <activity android:name=".orders.OrderAddProducts"></activity>
     </application>
 
 </manifest>

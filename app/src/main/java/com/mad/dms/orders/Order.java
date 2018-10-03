@@ -29,6 +29,10 @@ public class Order {
     public static final String COLUMN_SHOP = "shop";
     public static final String COLUMN_USER = "sales_rep";
 
+    public static final String REL_TABLE = "order_products";
+    public static final String COLUMN_REL_ORDER = "o_id";
+    public static final String COLUMN_REL_PROD = "p_id";
+
     public static final String CREATE_TABLE =
             "CREATE TABLE " + TABLE_NAME + " ("
                     + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -39,6 +43,15 @@ public class Order {
                     + COLUMN_SHOP + " INTEGER, "
                     + COLUMN_USER + " INTEGER DEFAULT NULL, "
                     + "FOREIGN KEY(" + COLUMN_USER + ") REFERENCES Product(P_Id) "
+                    + ")";
+
+    public static final String CREATE_REL_TABLE =
+            "CREATE TABLE " + REL_TABLE + " ("
+                    + COLUMN_REL_ORDER + " INTEGER, "
+                    + COLUMN_REL_PROD + " INTEGER, "
+                    + " FOREIGN KEY(" + COLUMN_REL_ORDER + ") REFERENCES orders(id),"
+                    + "FOREIGN KEY(" + COLUMN_REL_PROD + ") REFERENCES Product(P_Id), "
+                    + "PRIMARY KEY(o_id, p_id) "
                     + ")";
 
     public Order() {}

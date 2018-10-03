@@ -18,21 +18,26 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mad.dms.R;
 import com.mad.dms.adminclasses.User;
 import com.mad.dms.admindb.UserDBHelper;
+import com.mad.dms.product.Product;
+import com.mad.dms.product.ProductCustomAdapter;
 import com.mad.dms.signin.Login;
 import com.mad.dms.utils.FmtHelper;
 import com.mad.dms.utils.InputValidator;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Objects;
@@ -48,12 +53,13 @@ public class OrderViewActivity extends AppCompatActivity {
     private OrderDBHelper db;
     private UserDBHelper udb;
     private Intent replyIntent;
+    private ArrayList<Product> products;
 
     private static final String VIEW_ORDER_REPLY_ID = "com.mad.dms.orders.ORDER_UPDATE_REPLY";
     public static final String VIEW_ORDER_REPLY_POS = "com.mad.dms.orders.ORDER_UPDATE_REPLY";
 
-    public static final int VIEW_ORDER_DETAILS_REQUEST_CODE = 1;
-    public static final String VIEW_ORDER_DETAILS_INTENT = "com.mad.dms.orders.ORDER_DETAILS";
+    public static final int VIEW_ORDER_ADD_PRODUCTS_CODE = 1;
+    public static final String VIEW_ORDER_ADD_PRODUCTS = "com.mad.dms.orders.ORDER_ADD_PRODUCTS";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,8 +73,9 @@ public class OrderViewActivity extends AppCompatActivity {
         orderId = intent.getIntExtra(OrderMainActivity.VIEW_ORDER_EXTRA, -1);
         orderPos = intent.getIntExtra(OrderMainActivity.VIEW_ORDER_POS, -1);
         order = db.getOrder(orderId);
-        replyIntent = new Intent();
+        products = db.getOrderProducts(order.getId());
 
+        replyIntent = new Intent();
         if (order == null) {
             setResult(RESULT_CANCELED, replyIntent);
             finish();
@@ -87,32 +94,55 @@ public class OrderViewActivity extends AppCompatActivity {
             user = new User("Admin", "Admin", "dms@gmail.com", "", "0123456789");
         }
 
-        setOrderDetails();
         setRepDetails();
+        setOrderDetails();
+        setAdminButtons();
+        setProductDetails();
+    }
 
-        if (isAdmin) {
-            Button acceptBtn = findViewById(R.id.orderViewAcceptButton);
-            Button denyBtn = findViewById(R.id.orderViewDenyButton);
-            denyBtn.setOnClickListener(new View.OnClickListener() {
+    private void setProductDetails() {
+        Button addProducts = findViewById(R.id.order_view_add_products);
+        if (products.isEmpty()) {
+            addProducts.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (db.denyOrder(orderId) > -1) {
-                        replyIntent.putExtra(VIEW_ORDER_REPLY_ID, orderId);
-                        replyIntent.putExtra(VIEW_ORDER_REPLY_POS, orderPos);
-                        setResult(RESULT_OK, replyIntent);
-                        finish();
-                    }
-                }
-            });
-            acceptBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    acceptOrder();
+                    Intent i = new Intent(OrderViewActivity.this, OrderAddProducts.class);
+                    i.putExtra(VIEW_ORDER_ADD_PRODUCTS, order.getId());
+                    startActivity(i);
                 }
             });
         } else {
-            findViewById(R.id.orderViewAcceptDeny).setVisibility(View.GONE);
+            addProducts.setVisibility(View.GONE);
+            ArrayAdapter cus_arrayAdapter = new OrderViewProductsAdapter(this, products);
+            final ListView custom_listView = findViewById(R.id.order_view_product_list);
+            custom_listView.setVisibility(View.VISIBLE);
+            custom_listView.setAdapter(cus_arrayAdapter);
+            getPrices();
         }
+    }
+
+    public void getPrices() {
+        if (products.isEmpty()) {
+            return;
+        }
+        findViewById(R.id.orderViewTotalView).setVisibility(View.VISIBLE);
+        TextView subTotalV = findViewById(R.id.subTotalValue);
+        TextView deliveryPriceV = findViewById(R.id.deliveryChargeVal);
+        TextView totalPriceV = findViewById(R.id.orderTotalValue);
+
+        double tax, totalPrice;
+        double subTotal = 0;
+        for (Product p : products) {
+            subTotal += p.getPrice();
+        }
+
+        tax = 0.10 * subTotal;
+        totalPrice = subTotal + tax;
+
+
+        subTotalV.setText(String.format("Rs.%.2f", subTotal));
+        deliveryPriceV.setText(String.format("Rs.%.2f", tax));
+        totalPriceV.setText(String.format("Rs.%.2f", totalPrice));
     }
 
     private void setRepDetails() {
@@ -165,6 +195,32 @@ public class OrderViewActivity extends AppCompatActivity {
         statusText.setTextColor(statusColor);
         statusIconImg.setImageResource(statusIcon);
         statusIconImg.setColorFilter(statusColor, PorterDuff.Mode.MULTIPLY);
+    }
+
+    private void setAdminButtons() {
+        if (isAdmin) {
+            Button acceptBtn = findViewById(R.id.orderViewAcceptButton);
+            Button denyBtn = findViewById(R.id.orderViewDenyButton);
+            denyBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (db.denyOrder(orderId) > -1) {
+                        replyIntent.putExtra(VIEW_ORDER_REPLY_ID, orderId);
+                        replyIntent.putExtra(VIEW_ORDER_REPLY_POS, orderPos);
+                        setResult(RESULT_OK, replyIntent);
+                        finish();
+                    }
+                }
+            });
+            acceptBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    acceptOrder();
+                }
+            });
+        } else {
+            findViewById(R.id.orderViewAcceptDeny).setVisibility(View.GONE);
+        }
     }
 
     private static EditText orderDateStr = null;
@@ -276,6 +332,10 @@ public class OrderViewActivity extends AppCompatActivity {
     }
 
     private void acceptOrder() {
+        if (products.isEmpty()) {
+            Toast.makeText(getApplicationContext(), "Please choose items before accepting order!", Toast.LENGTH_SHORT).show();
+            return;
+        }
         if (db.acceptOrder(orderId) > -1) {
             endIntent();
         }

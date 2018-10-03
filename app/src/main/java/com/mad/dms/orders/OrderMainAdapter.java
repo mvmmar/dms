@@ -147,10 +147,10 @@ public class OrderMainAdapter extends RecyclerView.Adapter<OrderMainAdapter.Orde
                 if (mOrdersOriginal == null)
                     mOrdersOriginal = new ArrayList<>(mOrders);
                 if (constraint != null && constraint.length() > 0) {
+                    String search = constraint.toString().toLowerCase();
                     if (mOrdersOriginal != null && mOrdersOriginal.size() > 0) {
                         for (final Order cd : mOrdersOriginal) {
-                            if (cd.getName().toLowerCase()
-                                    .contains(constraint.toString().toLowerCase()))
+                            if (cd.getName().toLowerCase().contains(search) || cd.getStatusText().toLowerCase().contains(search))
                                 results.add(cd);
                         }
                     }
