@@ -50,22 +50,22 @@ public class OrderMainAdapter extends RecyclerView.Adapter<OrderMainAdapter.Orde
             String orderName, orderStatus, orderDate;
             orderName = order.getName();
             orderStatus = order.getStatusText();
+            orderDate = order.getFmtAcceptedDate();
 
             int statusColor, statusIcon;
 
+
             switch (order.getStatus()) {
                 case Order.ORDER_STATUS_CONFIRMED:
-                    orderDate = FmtHelper.formatShortDate(order.getDate());
                     statusColor = R.color.orderStatusAccepted;
                     statusIcon = R.drawable.order_ic_status_accepted;
                     break;
                 case Order.ORDER_STATUS_PENDING:
-                    orderDate = "--/--/--";
                     statusColor = R.color.orderStatusPending;
                     statusIcon = R.drawable.order_ic_status_pending;
                     break;
                 default:
-                    orderDate = "";
+                    orderDate = "--/--/----";
                     statusColor = R.color.orderStatusDenied;
                     statusIcon = R.drawable.order_ic_status_denied;
             }

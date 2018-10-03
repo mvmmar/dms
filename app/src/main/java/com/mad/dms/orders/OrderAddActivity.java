@@ -25,22 +25,22 @@ public class OrderAddActivity extends AppCompatActivity {
         mOrderName = findViewById(R.id.orderAddNameInput);
 
         final Button button = findViewById(R.id.orderAddButton);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent replyIntent = new Intent();
-                if (TextUtils.isEmpty(mOrderName.getText())) {
-                    setResult(RESULT_CANCELED, replyIntent);
-                } else {
-                    String name = mOrderName.getText().toString();
-                    int id = db.insertOrder(name);
-                    replyIntent.putExtra(EXTRA_REPLY, id);
-                    // replyIntent.putExtra(EXTRA_REPLY, name);
-                    setResult(RESULT_OK, replyIntent);
-                }
-                finish();
-            }
-        });
+//        button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent replyIntent = new Intent();
+//                if (TextUtils.isEmpty(mOrderName.getText())) {
+//                    setResult(RESULT_CANCELED, replyIntent);
+//                } else {
+//                    String name = mOrderName.getText().toString();
+//                    int id = db.insertOrder(name);
+//                    replyIntent.putExtra(EXTRA_REPLY, id);
+//                    // replyIntent.putExtra(EXTRA_REPLY, name);
+//                    setResult(RESULT_OK, replyIntent);
+//                }
+//                finish();
+//            }
+//        });
 
     }
 }

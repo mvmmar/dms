@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.mad.dms.adminclasses.AdminData;
 import com.mad.dms.adminclasses.User;
 import com.mad.dms.database.DMSDatabase;
+import com.mad.dms.orders.Order;
 
 import java.util.ArrayList;
 
@@ -189,5 +190,49 @@ public class UserDBHelper extends DMSDatabase {
 
         db.update(AdminDBKeys.USER_TABLE, values, "Email = ?", new String[]{LoginEmail});
         return true;
+    }
+
+    public int getUserId(String email) {
+        int id = -1;
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT " + AdminDBKeys.USER_ID + " FROM " + AdminDBKeys.USER_TABLE + " WHERE Email ='" + email + "' ", null);
+
+        if (cursor.moveToNext()) {
+            id = cursor.getInt(cursor.getColumnIndex(AdminDBKeys.USER_ID));
+        }
+
+        cursor.close();
+        return id;
+    }
+
+    public User getUser(int id) {
+        SQLiteDatabase db = getReadableDatabase();
+
+        String selection = AdminDBKeys.USER_ID + " = ?";
+        String[] selectionArgs = {String.valueOf(id)};
+
+        Cursor cursor = db.query(
+                AdminDBKeys.USER_TABLE,
+                null,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                null
+        );
+
+        User user = null;
+        System.out.print("USER ID " + id);
+        System.out.println("USER COLUMNS " + cursor.getCount());
+
+        if (cursor.moveToNext()) {
+            user = new User();
+            user.setId(Integer.toString(cursor.getInt(cursor.getColumnIndexOrThrow(AdminDBKeys.USER_ID))));
+            user.setEmail(cursor.getString(cursor.getColumnIndex(AdminDBKeys.USER_EMAIL)));
+            user.setName(cursor.getString(cursor.getColumnIndex(AdminDBKeys.USER_NAME)));
+            user.setPhoneNo(cursor.getString(cursor.getColumnIndex(AdminDBKeys.USER_PHONE)));
+        }
+        cursor.close();
+        return user;
     }
 }

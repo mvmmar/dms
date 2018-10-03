@@ -8,7 +8,7 @@ import com.mad.dms.admindb.AdminDBKeys;
 import com.mad.dms.orders.Order;
 
 public class DMSDatabase extends SQLiteOpenHelper {
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 3;
     private static final String DATABASE_NAME = "dms.db";
 
     public DMSDatabase(Context context) {

@@ -60,17 +60,15 @@
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 
-
     <LinearLayout
         android:id="@+id/orderViewAcceptDeny"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:background="@color/backgroundColor"
         android:gravity="center"
         android:orientation="horizontal"
         android:padding="8dp"
-        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
@@ -92,8 +90,10 @@
             android:text="@string/order_accept_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
     </LinearLayout>
 
+    <!--
     <LinearLayout
         android:id="@+id/orderViewUpdate"
         android:layout_width="match_parent"
@@ -103,7 +103,6 @@
         android:gravity="center"
         android:orientation="horizontal"
         android:padding="8dp"
-        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
@@ -117,5 +116,6 @@
             android:layout_marginRight="4dp"
             android:text="@string/order_update_button" />
     </LinearLayout>
+    -->
 
 </android.support.constraint.ConstraintLayout>

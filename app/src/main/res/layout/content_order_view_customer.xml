@@ -17,6 +17,7 @@
             android:contentDescription="@string/order_view_customer_name" />
 
         <TextView
+            android:id="@+id/order_view_rep_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
@@ -39,6 +40,7 @@
             android:contentDescription="@string/order_view_phone_no" />
 
         <TextView
+            android:id="@+id/order_view_rep_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
@@ -61,6 +63,7 @@
             android:contentDescription="@string/order_view_email" />
 
         <TextView
+            android:id="@+id/order_view_rep_mail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"

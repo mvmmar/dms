@@ -95,4 +95,6 @@
     <string name="title_activity_test">TestActivity</string>
     <string name="action_search">Search</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="set_date">Set Date</string>
+    <string name="no_orders">No Orders!</string>
 </resources>

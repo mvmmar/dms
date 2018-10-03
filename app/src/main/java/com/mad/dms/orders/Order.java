@@ -1,6 +1,7 @@
 package com.mad.dms.orders;
 
-import com.mad.dms.R;
+import com.mad.dms.adminclasses.User;
+import com.mad.dms.admindb.UserDBHelper;
 import com.mad.dms.utils.FmtHelper;
 
 import java.util.Date;
@@ -11,6 +12,8 @@ public class Order {
     private int status;
     private Date date;
     private Date accepted_date;
+    private int userId;
+    //    private User salesRep;
     private int shop_id;
 
     public static final int ORDER_STATUS_DENIED = -1;
@@ -24,6 +27,7 @@ public class Order {
     public static final String COLUMN_DATE = "created_date";
     public static final String COLUMN_ACCEPTED = "delivery_date";
     public static final String COLUMN_SHOP = "shop";
+    public static final String COLUMN_USER = "sales_rep";
 
     public static final String CREATE_TABLE =
             "CREATE TABLE " + TABLE_NAME + " ("
@@ -32,7 +36,10 @@ public class Order {
                     + COLUMN_STATUS + " INTEGER DEFAULT 0, "
                     + COLUMN_DATE + " DATETIME DEFAULT CURRENT_TIMESTAMP, "
                     + COLUMN_ACCEPTED + " DATE, "
-                    + COLUMN_SHOP + " INTEGER)";
+                    + COLUMN_SHOP + " INTEGER, "
+                    + COLUMN_USER + " INTEGER DEFAULT NULL, "
+                    + "FOREIGN KEY(" + COLUMN_USER + ") REFERENCES Product(P_Id) "
+                    + ")";
 
     public Order() {}
 
@@ -43,6 +50,8 @@ public class Order {
         this.date = null;
         this.accepted_date = null;
         this.shop_id = -1;
+        this.userId = -1;
+//        this.salesRep = new User("Admin", "Admin", "dms@gmail.com", "", "0123456789");
     }
 
     public Order(String name, int status) {
@@ -52,6 +61,8 @@ public class Order {
         this.date = null;
         this.accepted_date = null;
         this.shop_id = -1;
+        this.userId = -1;
+//        this.salesRep = new User("Admin", "Admin", "dms@gmail.com", "", "0123456789");
     }
 
     public Order(String name, int status, Date date) {
@@ -61,6 +72,8 @@ public class Order {
         this.date = date;
         this.accepted_date = null;
         this.shop_id = -1;
+        this.userId = -1;
+//        this.salesRep = new User("Admin", "Admin", "dms@gmail.com", "", "0123456789");
     }
 
     public Order(int id, String name, int status, String date) {
@@ -70,6 +83,8 @@ public class Order {
         this.date = FmtHelper.parseSQLDate(date);
         this.accepted_date = null;
         this.shop_id = -1;
+        this.userId = -1;
+//        this.salesRep = new User("Admin", "Admin", "dms@gmail.com", "", "0123456789");
     }
 
     // Order ID
@@ -126,7 +141,22 @@ public class Order {
 
     // Shop ID
     public int getShop_id() { return shop_id; }
-    public void setShop_id(int shop_id) { this.shop_id = shop_id;  }
+
+    public void setShop_id(int shop_id) {
+        this.shop_id = shop_id;
+    }
+
+    // User ID
+    public void setUserId(int id) {
+        this.userId = id;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+//    public void setSalesRep(User user) { this.salesRep = user; }
+//    public User getSalesRep() { return this.salesRep; }
 
     public String toString() {
         return "ID: " + this.id + ", "

@@ -32,6 +32,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     private CheckBox show_hide_password;
     private String admin_Email, admin_Password, EmailId, Password, Position;
     public static String sessionEmail;
+    private static boolean sessionAdmin;
+    public static int userId;
     private UserDBHelper udb;
 
 
@@ -136,19 +138,23 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             admin_Email = user.getEmail();
             admin_Password = user.getPassword();
             String user_password = udb.GetUserByEmail(EmailId);
+            userId = udb.getUserId(EmailId);
 
             if (Position.equalsIgnoreCase("Admin") && EmailId.equals(admin_Email) && Password.equals(admin_Password)) {
+                sessionEmail = EmailId;
+                sessionAdmin = true;
                 Intent i = new Intent(Login.this, AdminHome.class);
                 startActivity(i);
 
-                Toast msg = Toast.makeText(Login.this, "Login Successfull !!!.", Toast.LENGTH_SHORT);
+                Toast msg = Toast.makeText(Login.this, "Login Successful !!!." + userId, Toast.LENGTH_SHORT);
                 msg.show();
 
                 finish();
 
             } else if (!EmailId.equals(admin_Email) && Password.equals(user_password)) {
                 sessionEmail = EmailId;
-                Toast msg = Toast.makeText(Login.this, "Login Successfull !!!", Toast.LENGTH_SHORT);
+                sessionAdmin = false;
+                Toast msg = Toast.makeText(Login.this, "Login Successful !!!", Toast.LENGTH_SHORT);
                 msg.show();
 
                 Intent i = new Intent(Login.this, SalesRepHome.class);
@@ -159,9 +165,11 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                 Toast msg = Toast.makeText(Login.this, "Invalid Email or Password", Toast.LENGTH_SHORT);
                 msg.show();
             }
-
-
         }
+    }
+
+    public static boolean getSessionAdmin() {
+        return sessionAdmin;
     }
 }
 

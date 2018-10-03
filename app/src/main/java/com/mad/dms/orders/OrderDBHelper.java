@@ -7,8 +7,11 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.mad.dms.database.DMSDatabase;
+import com.mad.dms.signin.Login;
+import com.mad.dms.utils.FmtHelper;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 class OrderDBHelper extends DMSDatabase {
@@ -40,12 +43,17 @@ class OrderDBHelper extends DMSDatabase {
 //    }
 
     // Insert Note
-    public int insertOrder(String name) {
+    public int insertOrder(String name, Date date) {
         // get DB
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
         values.put(Order.COLUMN_NAME, name);
+        values.put(Order.COLUMN_ACCEPTED, FmtHelper.toSQLDate(date));
+
+        if (Login.userId > -1) {
+            values.put(Order.COLUMN_USER, Login.userId);
+        }
 
         int id = (int) db.insert(Order.TABLE_NAME, null, values);
 
@@ -75,6 +83,7 @@ class OrderDBHelper extends DMSDatabase {
     public int updateOrder(Order order) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
+        values.put(Order.COLUMN_STATUS, order.getName());
         values.put(Order.COLUMN_STATUS, order.getStatus());
         values.put(Order.COLUMN_ACCEPTED, order.getSQLAcceptedDate());
         values.put(Order.COLUMN_SHOP, order.getShop_id());
@@ -92,10 +101,11 @@ class OrderDBHelper extends DMSDatabase {
         order.setStatus(cursor.getInt(cursor.getColumnIndexOrThrow(Order.COLUMN_STATUS)));
         String date = cursor.getString(cursor.getColumnIndexOrThrow(Order.COLUMN_DATE));
         String delivery = cursor.getString(cursor.getColumnIndexOrThrow(Order.COLUMN_ACCEPTED));
-        System.out.println(date);
-        System.out.println(delivery);
+        int repId = cursor.getInt(cursor.getColumnIndexOrThrow(Order.COLUMN_USER));
+
         order.setDate(date);
         order.setSQLAcceptedDate(delivery);
+        order.setUserId(repId);
         return order;
     }
 
@@ -134,12 +144,19 @@ class OrderDBHelper extends DMSDatabase {
         List<Order> orders = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
         String sortOrder = Order.COLUMN_DATE + " DESC";
+        String selection = null;
+        String[] selectionArgs = null;
+
+        if (Login.userId > 0) {
+            selection = Order.COLUMN_USER + " = ?";
+            selectionArgs = new String[]{String.valueOf(Login.userId)};
+        }
 
         Cursor cursor = db.query(
                 Order.TABLE_NAME,
                 null,
-                null,
-                null,
+                selection,
+                selectionArgs,
                 null,
                 null,
                 sortOrder

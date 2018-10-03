@@ -10,11 +10,11 @@ public class FmtHelper {
     private static SimpleDateFormat sqlDate;
     private static SimpleDateFormat orderDate;
     private static SimpleDateFormat shortDate;
-    public final static String datePlaceHolder = "--/--/--";
+    public final static String datePlaceHolder = "--/--/----";
 
     private static SimpleDateFormat getShortDateFmt() {
         if (shortDate == null) {
-            shortDate = new SimpleDateFormat("dd/MM/yy", Locale.getDefault());
+            shortDate = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
             shortDate.setTimeZone(TimeZone.getDefault());
         }
         return shortDate;
