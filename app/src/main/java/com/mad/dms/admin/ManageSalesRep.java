@@ -39,6 +39,7 @@ public class ManageSalesRep extends AppCompatActivity implements View.OnClickLis
         manage_email = findViewById(R.id.MSR_email);
         manage_phone = findViewById(R.id.MSR_phoneNo);
         manage_password = findViewById(R.id.MSR_password);
+        manage_email.setEnabled(false);
 
         Delete = findViewById(R.id.MSR_Delete);
         Update = findViewById(R.id.MSR_Update);
@@ -118,8 +119,6 @@ public class ManageSalesRep extends AppCompatActivity implements View.OnClickLis
         PhoneNo = manage_phone.getText().toString();
         Password = manage_password.getText().toString();
 
-        boolean isEmailAvailable = udb.checkUserEmail(Email);
-
         //name pattern
         String r1 = "^[a-zA-Z]{2,30}$";
         Pattern p1 = Pattern.compile(r1);
@@ -145,7 +144,7 @@ public class ManageSalesRep extends AppCompatActivity implements View.OnClickLis
             Toast msg = Toast.makeText(ManageSalesRep.this, "Empty Input Field", Toast.LENGTH_SHORT);
             msg.show();
         } else if (!m1.find()) {
-            Toast msg = Toast.makeText(ManageSalesRep.this, "Fullname Field is Invalid.", Toast.LENGTH_SHORT);
+            Toast msg = Toast.makeText(ManageSalesRep.this, "Name Field is Invalid.", Toast.LENGTH_SHORT);
             msg.show();
         } else if (!m2.find()) {
             Toast msg = Toast.makeText(ManageSalesRep.this, "Email Field is Invalid.", Toast.LENGTH_SHORT);
@@ -158,9 +157,6 @@ public class ManageSalesRep extends AppCompatActivity implements View.OnClickLis
             msg.show();
         } else if (Password.length() < 8) {
             Toast msg = Toast.makeText(ManageSalesRep.this, "Minimum Password Length is 8", Toast.LENGTH_SHORT);
-            msg.show();
-        } else if (isEmailAvailable == false) {
-            Toast msg = Toast.makeText(ManageSalesRep.this, "Email is Used Already !!!", Toast.LENGTH_SHORT);
             msg.show();
         } else {
             String ID = ViewSalesRep.userList.get(position).getId();
