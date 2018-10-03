@@ -1,5 +1,6 @@
 package com.mad.dms.orders;
 
+import com.mad.dms.R;
 import com.mad.dms.utils.FmtHelper;
 
 import java.util.Date;
@@ -91,6 +92,17 @@ public class Order {
     }
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    public String getStatusText() {
+        switch (this.status) {
+            case Order.ORDER_STATUS_CONFIRMED:
+                return "Confirmed";
+            case Order.ORDER_STATUS_PENDING:
+                return "Pending";
+            default:
+                return "Denied";
+        }
     }
 
     // Created Date

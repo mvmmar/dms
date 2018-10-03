@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".orders.OrderMainActivity"
-    tools:showIn="@layout/activity_order_main">
+    tools:showIn="@layout/activity_order_main"
+    android:overScrollMode="ifContentScrolls">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvOrderMain"

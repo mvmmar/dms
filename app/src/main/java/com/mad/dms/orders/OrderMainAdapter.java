@@ -8,24 +8,29 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mad.dms.R;
 import com.mad.dms.utils.FmtHelper;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class OrderMainAdapter extends RecyclerView.Adapter<OrderMainAdapter.OrdersViewHolder> {
+public class OrderMainAdapter extends RecyclerView.Adapter<OrderMainAdapter.OrdersViewHolder> implements Filterable {
 
     private ItemClickListener mClickListener;
     private final LayoutInflater mInflater;
-    private final List<Order> mOrders;  // cached copy of orders
+    private List<Order> mOrders;  // cached copy of orders
+    private List<Order> mOrdersOriginal;
 
     // pass data into constructor
     OrderMainAdapter(Context context, List<Order> orders) {
         this.mInflater = LayoutInflater.from(context);
         this.mOrders = orders;
+        this.mOrdersOriginal = orders;
     }
 
     // inflate the row layout from xml when needed
@@ -44,24 +49,22 @@ public class OrderMainAdapter extends RecyclerView.Adapter<OrderMainAdapter.Orde
             Order order = mOrders.get(position);
             String orderName, orderStatus, orderDate;
             orderName = order.getName();
+            orderStatus = order.getStatusText();
 
             int statusColor, statusIcon;
 
             switch (order.getStatus()) {
                 case Order.ORDER_STATUS_CONFIRMED:
-                    orderStatus = "Confirmed";
                     orderDate = FmtHelper.formatShortDate(order.getDate());
                     statusColor = R.color.orderStatusAccepted;
                     statusIcon = R.drawable.order_ic_status_accepted;
                     break;
                 case Order.ORDER_STATUS_PENDING:
-                    orderStatus = "Pending";
                     orderDate = "--/--/--";
                     statusColor = R.color.orderStatusPending;
                     statusIcon = R.drawable.order_ic_status_pending;
                     break;
                 default:
-                    orderStatus = "Denied";
                     orderDate = "";
                     statusColor = R.color.orderStatusDenied;
                     statusIcon = R.drawable.order_ic_status_denied;
@@ -128,5 +131,45 @@ public class OrderMainAdapter extends RecyclerView.Adapter<OrderMainAdapter.Orde
 
     void setClickListener(ItemClickListener itemClickListener) {
         this.mClickListener = itemClickListener;
+    }
+
+
+    public void resetSearch(List<Order> orders) {
+        this.mOrders = orders;
+    }
+
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+                final FilterResults oReturn = new FilterResults();
+                final ArrayList<Order> results = new ArrayList<>();
+                if (mOrdersOriginal == null)
+                    mOrdersOriginal = new ArrayList<>(mOrders);
+                if (constraint != null && constraint.length() > 0) {
+                    if (mOrdersOriginal != null && mOrdersOriginal.size() > 0) {
+                        for (final Order cd : mOrdersOriginal) {
+                            if (cd.getName().toLowerCase()
+                                    .contains(constraint.toString().toLowerCase()))
+                                results.add(cd);
+                        }
+                    }
+                    oReturn.values = results;
+                    oReturn.count = results.size();//newly Aded by ZA
+                } else {
+                    oReturn.values = mOrdersOriginal;
+                    oReturn.count = mOrdersOriginal.size();//newly added by ZA
+                }
+                return oReturn;
+            }
+
+            @SuppressWarnings("unchecked")
+            @Override
+            protected void publishResults(final CharSequence constraint,
+                                          FilterResults results) {
+                mOrders = new ArrayList<>((ArrayList<Order>) results.values);
+                notifyDataSetChanged();
+            }
+        };
     }
 }

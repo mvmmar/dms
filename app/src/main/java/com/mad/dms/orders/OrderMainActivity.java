@@ -4,13 +4,18 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -35,6 +40,9 @@ public class OrderMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_main);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -72,6 +80,7 @@ public class OrderMainActivity extends AppCompatActivity {
         Order o = db.getOrder(id);
         if (o != null) {
             orders.add(0, o);
+            adapter.resetSearch(orders);
             adapter.notifyDataSetChanged();
         }
     }
@@ -163,4 +172,26 @@ public class OrderMainActivity extends AppCompatActivity {
 //        getMenuInflater().inflate(R.menu.menu_order_main, menu);
 //        return true;
 //    }
+@Override
+public boolean onCreateOptionsMenu(Menu menu) {
+    getMenuInflater().inflate(R.menu.order_menu, menu);
+
+    final MenuItem searchItem = menu.findItem(R.id.action_search);
+    final SearchView searchView = (SearchView) searchItem.getActionView();
+
+    searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        @Override
+        public boolean onQueryTextSubmit(String query) {
+            return false;
+        }
+
+        @Override
+        public boolean onQueryTextChange(String newText) {
+            adapter.getFilter().filter(newText);
+            return true;
+        }
+    });
+
+    return true;
+}
 }
